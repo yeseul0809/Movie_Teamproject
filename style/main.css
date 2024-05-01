@@ -55,9 +55,11 @@ h2 {
   display: flex;
   flex-direction: row;
 }
+
 .nav_list li {
   padding: 12px;
 }
+
 .nav_list li:last-child {
   padding-right: 0;
 }
@@ -72,7 +74,7 @@ h2 {
 #movieSearch {
   width: 100%;
   border-radius: 20px;
-  border: 2px solid var(--grey-color);
+  border: 1.5px solid #dfe1e5;
   margin: 10px 0;
   padding: 10px 12px;
   font-family: var(--icon);
@@ -105,18 +107,19 @@ h2 {
   text-align: center;
   background-color: aliceblue;
 }
+
 .main h2 {
   padding-top: 179px;
 }
 
 /* 영화 상세페이지 영역*/
-.subpage {
-}
+.subpage {}
 
 /* 시사회/무대인사 영역*/
 .preview {
   height: 200px;
 }
+
 /* 더 많은 정보 영역*/
 
 .information {
@@ -150,6 +153,7 @@ h2 {
 .footer_logo {
   width: 140px;
 }
+
 .footer_infbox ol {
   display: flex;
   flex-direction: row;
