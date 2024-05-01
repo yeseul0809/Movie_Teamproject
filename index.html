@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Movie</title>
+    <link rel="stylesheet" href="./style/layout.css" />
+    <link rel="stylesheet" href="./style/card.css" />
+    <link rel="stylesheet" href="./style/swal.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1 id="header">Top Rated Movie List</h1>
+    </header>
+    <form class="search" id="searchForm">
+      <p class="searching">영화 검색 :</p>
+      <input
+        type="text"
+        id="movieSearch"
+        name="search"
+        placeholder="영화 제목을 검색해보세요"
+        autofocus
+      />
+      <button type="submit" id="searchButton">검색</button>
+    </form>
+    <div id="cardsGroup"></div>
+    <script type="module" src="./modules/display.js"></script>
+    <script type="module" src="./modules/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+  </body>
+</html>
