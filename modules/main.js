@@ -40,8 +40,8 @@ fetch(
   .catch((err) => console.error(err));
 
 // 제목 h1 누르면 페이지 reload
+const header = document.querySelector("header");
+header.addEventListener("click", reloadPage);
 function reloadPage() {
   window.location.reload();
 }
-const header = document.querySelector("header");
-header.addEventListener("click", reloadPage);

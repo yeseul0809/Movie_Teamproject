@@ -21,6 +21,7 @@ function displayMovies(movies) {
         imageAlt: movie.title,
         confirmButtonColor: "rgb(203, 34, 34)",
       });
+      window.location.href = `review.html?id=${movie.id}`;
     });
 
     cardsGroup.appendChild(card);
@@ -51,6 +52,7 @@ function displayMatchingMovies(movies, searchInput) {
           imageAlt: movie.title,
           confirmButtonColor: "rgb(203, 34, 34)",
         });
+        window.location.href = `review.html?id=${movie.id}`;
       });
 
       cardsGroup.appendChild(card);
