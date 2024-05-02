@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieReview</title>
+    <link rel="stylesheet" href="./review.css" />
+  </head>
+  <body>
+    <div class="movieInformation">
+      <div class="poster" id="movie-poster"></div>
+      <div class="overview">
+        <p id="movie-description">Movie Description</p>
+        <p id="movie-rating">Rating :</p>
+      </div>
+    </div>
+    <div class="review-section">
+      <h3>Write a Review</h3>
+      <form id="review-form">
+        <textarea
+          id="review-text"
+          rows="3"
+          placeholder="Enter your review"
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <h3>Reviews</h3>
+      <ul class="review-list" id="review-list"></ul>
+    </div>
+    <script src="./modules/review.js" defer></script>
+  </body>
+</html>
