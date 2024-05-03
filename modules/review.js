@@ -99,6 +99,7 @@ function editReview(movieId, index) {
     showCancelButton: true,
     confirmButtonText: "확인",
     cancelButtonText: "취소",
+    cancelButtonColor: "gray",
 
     //확인 버튼 클릭시 실행
     preConfirm: (password) => {
@@ -115,6 +116,7 @@ function editReview(movieId, index) {
               reviews[movieId][index].text = newText;
               localStorage.setItem("reviews", JSON.stringify(reviews));
               displayReviews(movieId);
+              Swal.fire("수정완료", "리뷰가 수정되었습니다.", "success");
             }
           },
         });
@@ -132,18 +134,19 @@ function editReview(movieId, index) {
 // 리뷰 삭제
 function deleteReview(movieId, index) {
   Swal.fire({
-    title: "비밀번호 확인",
+    title: "비밀번호를 입력하세요",
     input: "password",
-    inputLabel: "비밀번호를 입력하세요",
     showCancelButton: true,
     confirmButtonColor: "red",
     cancelButtonColor: "gray",
-    confirmButtonText: "삭제",
+    cancelButtonText: "취소",
+    confirmButtonText: "확인",
     preConfirm: (password) => {
       if (password === reviews[movieId][index].password) {
         reviews[movieId].splice(index, 1);
         localStorage.setItem("reviews", JSON.stringify(reviews));
         displayReviews(movieId);
+        Swal.fire("삭제완료", "리뷰가 삭제되었습니다.", "success");
       } else {
         Swal.fire({
           text: "비밀번호가 일치하지 않습니다.",
@@ -152,9 +155,5 @@ function deleteReview(movieId, index) {
         });
       }
     },
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire("삭제 완료", "리뷰가 삭제되었습니다.", "success");
-    }
   });
 }
