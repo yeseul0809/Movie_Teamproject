@@ -46,7 +46,17 @@ reviewForm.addEventListener("submit", (event) => {
   // 비밀번호 입력 확인
   if (!reviewPassword) {
     Swal.fire({
-      text: "비밀번호를 작성해주세요.",
+      text: "비밀번호를 영어 대문자를 포함하여 8자 이상 작성해주세요.",
+      icon: "warning",
+      confirmButtonColor: "gray",
+    });
+    return;
+  }
+
+  // 비밀번호 유효성 검사
+  if (reviewPassword.length < 8 || !/[A-Z]/.test(reviewPassword)) {
+    Swal.fire({
+      text: "비밀번호는 영어 대문자를 포함하여 8자 이상 작성해야합니다.",
       icon: "warning",
       confirmButtonColor: "gray",
     });
