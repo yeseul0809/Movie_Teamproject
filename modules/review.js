@@ -46,12 +46,23 @@ reviewForm.addEventListener("submit", (event) => {
   // 비밀번호 입력 확인
   if (!reviewPassword) {
     Swal.fire({
-      text: "비밀번호를 작성해주세요.",
+      text: "비밀번호를 8자 이상 작성해주세요.",
       icon: "warning",
       confirmButtonColor: "gray",
     });
     return;
   }
+
+  // 비밀번호 유효성 검사
+  if (reviewPassword.length < 8) {
+    Swal.fire({
+      text: "비밀번호는 8자 이상이어야 합니다.",
+      icon: "warning",
+      confirmButtonColor: "gray",
+    });
+    return;
+  }
+
   // 리뷰와 비밀번호 둘다 작성한경우
   if (reviewText && reviewPassword) {
     const newReview = {
