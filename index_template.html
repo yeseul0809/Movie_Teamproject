@@ -16,31 +16,31 @@
     <div class="contentWrapper">
       <!-- 해더 -->
       <header class="header">
-        <h1 id="logo">
-          <!-- 날씨 기능 구현 영역-->
-          <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
-        </h1>
-        <a her="#" class="nav_togleBtn">
-          <i class="fas fa-bars"></i>
-        </a>
-        <nav class="nav">
-          <ul class="nav_list">
-            <li>
-              <a href="#">예매</a>
-              <div class="sub_nav">
-
-              </div>
-            </li>
-            <li><a href="#">영화</a></li>
-            <li><a href="#">영화관</a></li>
-            <li><a href="#">이벤트</a></li>
-            <li><a href="#">스토어</a></li>
-          </ul>
-        </nav>
+        <div class="header_container">
+          <h1 id="logo">
+            <!-- 날씨 기능 구현 영역-->
+            <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
+          </h1>
+          <a her="#" class="nav_togleBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+          <nav class="pc_nav">
+            <ul class="nav_list">
+              <li><a href="#">예매</a>
+              </li>
+              <li><a href="#">영화</a></li>
+              <li><a href="#">영화관</a></li>
+              <li><a href="#">이벤트</a></li>
+              <li><a href="#">스토어</a></li>
+            </ul>
+          </nav>
+        </div>
       </header>
       <!-- 작업 공간 ( h2 지우고 사용하세요 )-->
       <main class="main">
-        <h2 style="width:980px; margin: 100px auto; text-align: center;">템플릿입니다.</h2>
+
       </main>
     </div>
     <!-- 푸터 영역 -->
@@ -76,14 +76,7 @@
     </footer>
   </div>
   <script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
-  <script>
-    const navToggleBtn = document.querySelector(".nav_togleBtn");
-    const nav = document.querySelector(".nav_list");
-
-    navToggleBtn.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
-  </script>
+  <script type="module" src="./modules/common.js"></script>
 </body>
 
 </html>
