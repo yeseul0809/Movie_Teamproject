@@ -52,6 +52,7 @@ reviewForm.addEventListener("submit", (event) => {
     });
     return;
   }
+
   // 리뷰와 비밀번호 둘다 작성한경우
   if (reviewText && reviewPassword) {
     const newReview = {
