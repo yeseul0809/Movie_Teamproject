@@ -55,7 +55,6 @@
 }
 
 /* 더 많은 정보 영역*/
-
 .information h2 {
   margin-bottom: 30px;
 }
@@ -122,7 +121,7 @@
   top: 50%;
   left: 50%;
   transition: transform .4s;
-  transform: translate(-50%, calc(-50%));
+  transform: translate(-50%, -50%);
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
@@ -147,9 +146,14 @@
 
 
 @media only screen and (max-width: 1068px) {
+
+  .rolling_movie_slides_wrapper,
+  .rolling_movie_slides li {
+    height: 97px
+  }
+
   .rolling_movie_slides li {
     width: 171px;
-    height: 97px
   }
 }
 
@@ -200,8 +204,38 @@
   }
 }
 
+@keyframes slide03 {
+  0% {
+    transform: translateX(10%);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+
+  50.01% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
 /* 복제용 */
 @keyframes slide02 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+/* 복제용 */
+@keyframes slide04 {
   0% {
     transform: translateX(0);
   }
