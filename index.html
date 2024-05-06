@@ -54,10 +54,22 @@
         </ul>
       </nav>
       <!-- 메인 슬라이더 영역-->
-      <main class="main">
-        <h2>메인 슬라이더</h2>
-        <!-- 메인 슬라이더 구현 영역-->
-      </main>
+      <div id="carouselContainer">
+        <div id="carouselSlides">
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+        </div>       
+
+        <i class="fa-solid fa-chevron-left"></i>
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <div class="youtubePopup hidden">
+          <div id="player"></div>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
       <!-- 검색창 영역 -->
       <form class="search" id="searchForm">
         <input type="text" id="movieSearch" name="search" placeholder="영화 제목을 검색해보세요" autofocus />
@@ -66,10 +78,7 @@
         </button>
       </form>
       <section class="section">
-        <!-- 영화 상세페이지 영역 -->
-        <!-- <article class="subpage">
-          <div id="cardsGroup"></div>
-        </article> -->
+  
         <!-- 시사회/무대인사 영역 -->
         <article class="preview">
           <h2>시사회/무대인사</h2>
@@ -87,7 +96,7 @@
                   </h4>
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#" target="_blank" aria-label="리뷰 보기">
                   <img src="./img/main/event_img/6.jpg" alt="2번 이미지">
                   <h4 class="rolling_movie_slides-content">
@@ -126,7 +135,7 @@
                     <span class="rolling_movie_slides_cta">리뷰 보기</span>
                   </h4>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div>
 
@@ -135,10 +144,13 @@
                 aria-hidden="true"></i></a>
             <a href="#" class="rm_play_btn"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
           </div>
-
-
-
         </article>
+
+
+        <!-- 영화 상세페이지 영역 -->
+          <article class="subpage">
+            <div id="cardsGroup"></div>
+          </article>
         <!-- 공지사항 영역 -->
         <article class="notice">
           <h2>공지사항</h2>
@@ -187,6 +199,18 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
   <script type="module" src="./modules/common.js"></script>
   <script type="module" src="./modules/rolling_slider.js"></script>
+  <script type="module" src="./modules/mainSlide.js" defer></script>
+  <script type="module" src="./modules/youtube.js" defer></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script
+    src="https://kit.fontawesome.com/4bbbcee7af.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    window.onload = () => {
+      window.scrollTo(0, 0);
+    };
+  </script>
 </body>
 </body>
 
