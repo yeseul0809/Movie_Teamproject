@@ -6,11 +6,14 @@
 :root {
     --default-width: 980px;
     --grey-color: #f5f5f7;
+    --main-color: #4b65d8;
     --font-footer-color: #6c6c6c;
+    --gray-button-color: #707070;
     --title-padding-top: 60px;
     --font-default: "Noto Sans KR", sans-serif;
-    --font-title-size: 24px;
+    --font-title-size: 26px;
     --font-title-weight: 600;
+    --font-text-size: 16px;
     --icon: fontAwesome;
 }
 
@@ -104,7 +107,7 @@ h2 {
 .pc_nav .nav_list li:after {
     display: block;
     content: '';
-    border-bottom: solid 2px #3b5cf0;
+    border-bottom: solid 2px var(--main-color);
     position: relative;
     top: 18px;
     transform: scaleX(0);
@@ -176,7 +179,7 @@ h2 {
     }
 
     .mb_nav .nav_list li:hover {
-        background-color: #4661d7;
+        background-color: var(--main-color);
     }
 
     .mb_nav .nav_list li:hover a {
