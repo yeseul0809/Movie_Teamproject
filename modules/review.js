@@ -1,54 +1,123 @@
 // 상단 구조
 const url = new URLSearchParams(window.location.search);
-const movieId = url.get("id");
+const movieId = url.get('id');
 
 const options = {
-  method: "GET",
+  method: 'GET',
   headers: {
-    accept: "application/json",
+    accept: 'application/json',
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MjVhY2I0YWI1YjY1MzRlYjlhMTY5MmI5MWFlNjQ5MiIsInN1YiI6IjY2Mjc1N2Q3MTk3ZGU0MDE3ZDJkNTU0NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._21B2bQFep_OOlQFiZX23F8LcMguJbtnrZLuaRRFMbc",
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MjVhY2I0YWI1YjY1MzRlYjlhMTY5MmI5MWFlNjQ5MiIsInN1YiI6IjY2Mjc1N2Q3MTk3ZGU0MDE3ZDJkNTU0NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._21B2bQFep_OOlQFiZX23F8LcMguJbtnrZLuaRRFMbc',
   },
 };
 
-fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
-  .then((response) => response.json())
-  .then((data) => {
-    document.querySelector(
-      "#movie-poster"
-    ).style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${data.poster_path})`;
-    document.getElementById("movie-title").textContent = data.title;
-    document.getElementById("movie-description").textContent = data.overview;
-    document.getElementById(
-      "movie-rating"
-    ).textContent = `Rating : ${data.vote_average}`;
-  })
-  .catch((err) => console.error(err));
+async function fetchMovieData() {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      options
+    );
+    const data = await response.json();
+
+    makeDesc(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function fetchMoviesData() {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1`,
+      options
+    );
+    const data = await response.json();
+    let filterMovies = getFilteredMoviesData(data);
+    makeRelatedMovies(filterMovies);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// 사용 예시
+fetchMovieData();
+fetchMoviesData();
+
+function makeDesc(data) {
+  document.querySelector(
+    '#movie-poster'
+  ).style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${data.poster_path})`;
+  document.getElementById('movie-title').textContent = data.title;
+  document.getElementById('movie-description').textContent = data.overview;
+  document.getElementById(
+    'movie-rating'
+  ).textContent = `Rating : ${data.vote_average}`;
+}
+
+function getFilteredMoviesData(data) {
+  let relatedMovies = [];
+
+  const currentMovie = data.results.filter(
+    (item) => item.id === Number(movieId)
+  )[0];
+
+  let genreIdsArr = data.results.map((movie) => {
+    return movie.genre_ids;
+  });
+
+  genreIdsArr.forEach((movie, index) => {
+    let count = 0;
+    currentMovie.genre_ids.forEach((item) => {
+      movie.includes(item) ? count++ : null;
+    });
+    count >= 2 && relatedMovies.push(data.results[index]);
+  });
+
+  let filterMovies = relatedMovies.filter(
+    (item) => item.id !== currentMovie.id
+  );
+
+  return filterMovies;
+}
+
+function makeRelatedMovies(filterMovies) {
+  const recommendList = document.querySelector('#recommend-list');
+  filterMovies.forEach((movie) => {
+    const list = document.createElement('li');
+    list.classList.add('relatedList');
+    list.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title}">`;
+    recommendList.appendChild(list);
+
+    list.addEventListener('click', () => {
+      window.location.href = `review.html?id=${movie.id}`;
+    });
+  });
+}
 
 // 리뷰 관련 기능
-const reviewForm = document.getElementById("review-form");
-const reviewList = document.getElementById("review-list");
+const reviewForm = document.getElementById('review-form');
+const reviewList = document.getElementById('review-list');
 
 // 로컬 스토리지에서 리뷰 데이터 가져오기
-let reviews = JSON.parse(localStorage.getItem("reviews")) || {};
+let reviews = JSON.parse(localStorage.getItem('reviews')) || {};
 reviews[movieId] = reviews[movieId] || []; //리뷰데이터 초기화
 
 displayReviews(movieId);
 
 // 리뷰 작성 및 저장
-reviewForm.addEventListener("submit", (event) => {
+reviewForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const reviewText = document.getElementById("review-text").value.trim(); //공백 제거 후 입력값 할당.
+  const reviewText = document.getElementById('review-text').value.trim(); //공백 제거 후 입력값 할당.
   const reviewPassword = document
-    .getElementById("review-password")
+    .getElementById('review-password')
     .value.trim();
 
   // 비밀번호 입력 확인
   if (!reviewPassword) {
     Swal.fire({
-      text: "비밀번호를 작성해주세요.",
-      icon: "warning",
-      confirmButtonColor: "gray",
+      text: '비밀번호를 작성해주세요.',
+      icon: 'warning',
+      confirmButtonColor: 'gray',
     });
     return;
   }
@@ -61,31 +130,31 @@ reviewForm.addEventListener("submit", (event) => {
       password: reviewPassword,
     };
     reviews[movieId].push(newReview); //ID별 새로운 리뷰데이터 추가
-    localStorage.setItem("reviews", JSON.stringify(reviews));
+    localStorage.setItem('reviews', JSON.stringify(reviews));
 
-    document.getElementById("review-text").value = "";
-    document.getElementById("review-password").value = "";
+    document.getElementById('review-text').value = '';
+    document.getElementById('review-password').value = '';
     displayReviews(movieId);
   }
 });
 
 // 리뷰 목록 표시
 function displayReviews(movieId) {
-  reviewList.innerHTML = "";
+  reviewList.innerHTML = '';
   reviews[movieId].forEach((review, index) => {
-    const reviewItem = document.createElement("li");
+    const reviewItem = document.createElement('li');
     reviewItem.textContent = `${review.text} (${review.timestamp})`;
 
     //수정 버튼 추가
-    const editButton = document.createElement("button");
-    editButton.textContent = "수정";
-    editButton.addEventListener("click", () => editReview(movieId, index)); // 클릭시 리뷰 수정 함수 호출
+    const editButton = document.createElement('button');
+    editButton.textContent = '수정';
+    editButton.addEventListener('click', () => editReview(movieId, index)); // 클릭시 리뷰 수정 함수 호출
     reviewItem.appendChild(editButton);
 
     //삭제 버튼 추가
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "삭제";
-    deleteButton.addEventListener("click", () => deleteReview(movieId, index)); // 클릭시 리뷰 삭제 함수 호출
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '삭제';
+    deleteButton.addEventListener('click', () => deleteReview(movieId, index)); // 클릭시 리뷰 삭제 함수 호출
     reviewItem.appendChild(deleteButton);
 
     reviewList.appendChild(reviewItem);
@@ -95,37 +164,37 @@ function displayReviews(movieId) {
 // 리뷰 수정
 function editReview(movieId, index) {
   Swal.fire({
-    title: "비밀번호를 입력하세요",
-    input: "password",
+    title: '비밀번호를 입력하세요',
+    input: 'password',
     showCancelButton: true,
-    confirmButtonText: "확인",
-    cancelButtonText: "취소",
-    cancelButtonColor: "gray",
+    confirmButtonText: '확인',
+    cancelButtonText: '취소',
+    cancelButtonColor: 'gray',
 
     //확인 버튼 클릭시 실행
     preConfirm: (password) => {
       if (password === reviews[movieId][index].password) {
         return Swal.fire({
-          title: "수정할 리뷰를 입력하세요",
-          input: "textarea",
+          title: '수정할 리뷰를 입력하세요',
+          input: 'textarea',
           inputValue: reviews[movieId][index].text,
           showCancelButton: true,
-          confirmButtonText: "저장",
-          cancelButtonText: "취소",
+          confirmButtonText: '저장',
+          cancelButtonText: '취소',
           preConfirm: (newText) => {
             if (newText != null) {
               reviews[movieId][index].text = newText;
-              localStorage.setItem("reviews", JSON.stringify(reviews));
+              localStorage.setItem('reviews', JSON.stringify(reviews));
               displayReviews(movieId);
-              Swal.fire("수정완료", "리뷰가 수정되었습니다.", "success");
+              Swal.fire('수정완료', '리뷰가 수정되었습니다.', 'success');
             }
           },
         });
       } else {
         Swal.fire({
-          text: "비밀번호가 일치하지 않습니다.",
-          icon: "error",
-          confirmButtonColor: "gray",
+          text: '비밀번호가 일치하지 않습니다.',
+          icon: 'error',
+          confirmButtonColor: 'gray',
         });
       }
     },
@@ -135,26 +204,46 @@ function editReview(movieId, index) {
 // 리뷰 삭제
 function deleteReview(movieId, index) {
   Swal.fire({
-    title: "비밀번호를 입력하세요",
-    input: "password",
+    title: '비밀번호를 입력하세요',
+    input: 'password',
     showCancelButton: true,
-    confirmButtonColor: "red",
-    cancelButtonColor: "gray",
-    cancelButtonText: "취소",
-    confirmButtonText: "확인",
+    confirmButtonColor: 'red',
+    cancelButtonColor: 'gray',
+    cancelButtonText: '취소',
+    confirmButtonText: '확인',
     preConfirm: (password) => {
       if (password === reviews[movieId][index].password) {
         reviews[movieId].splice(index, 1);
-        localStorage.setItem("reviews", JSON.stringify(reviews));
+        localStorage.setItem('reviews', JSON.stringify(reviews));
         displayReviews(movieId);
-        Swal.fire("삭제완료", "리뷰가 삭제되었습니다.", "success");
+        Swal.fire('삭제완료', '리뷰가 삭제되었습니다.', 'success');
       } else {
         Swal.fire({
-          text: "비밀번호가 일치하지 않습니다.",
-          icon: "error",
-          confirmButtonColor: "gray",
+          text: '비밀번호가 일치하지 않습니다.',
+          icon: 'error',
+          confirmButtonColor: 'gray',
         });
       }
     },
   });
 }
+
+// fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
+//   .then((response) => response.json())
+//   .then((data) => {
+//     getCurrentMovie(data);
+//     document.querySelector(
+//       '#movie-poster'
+//     ).style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${data.poster_path})`;
+//     document.getElementById('movie-title').textContent = data.title;
+//     document.getElementById('movie-description').textContent = data.overview;
+//     document.getElementById(
+//       'movie-rating'
+//     ).textContent = `Rating : ${data.vote_average}`;
+//   })
+//   .catch((err) => console.error(err));
+
+// const movieRecommend = document.querySelector('.movieRecommend');
+// const newEl = document.createElement('p');
+// newEl.innerText = '추가 테스트!!';
+// movieRecommend.appendChild(newEl);
