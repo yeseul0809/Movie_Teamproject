@@ -9,6 +9,92 @@
   <title>팀프로젝트 - 영화 페이지</title>
   <link rel="stylesheet" href="./style/reset.css" />
   <link rel="stylesheet" href="./style/common.css" />
+   <style>
+    main #page01{
+      width: 1000px;
+      height: 300px;
+      background-color: #EFF294;
+    }
+     main #page02 .list{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+     }
+    main #page02 .search{
+       margin-top: 50px;
+       width: 500px;
+       height: 50px;
+       border-radius: 30px;
+       border: 1px solid gray;
+       position: relative;
+       right: -250px;
+    }
+     main #page02 .search img{
+      position: relative;
+      right: -450px;
+
+     }
+    main #page02 .name{
+      margin-top: 100px;
+      font-size: 30px;
+     
+    }
+  
+    main #page02 .list li img{
+     width: 150px;
+     height: 200px;
+     
+    }
+    main #page03 .name{
+      font-size: 30px;
+      margin-top: 50px;
+    }
+    main #page03 .list{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    main #page04 .name{
+      font-size: 20px;
+      margin-top: 30px;
+    }
+    main #page04 .list{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    main #page05 .list{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 30px;
+      
+    }
+    main #page05{
+      width: 1000px;
+      height: 50px;
+      background-color: gainsboro;
+      margin-top: 50px;
+      margin-bottom: 50px;
+
+    }
+    main #page05 .name01{
+      line-height: 50px;
+      padding-left: 30px;
+    }
+    main #page05 .name02{
+      line-height: 50px;
+      position: relative;
+      left: -150px;
+    }
+    main #page05 .name03{
+      line-height: 50px;
+      position: relative;
+      right: -200px;
+    }
+    main #page06{
+     margin-top: 30px;
+    }
+    footer{
+      margin-top: 100px;
+    }
+  </style>
 </head>
 
 <body>
@@ -38,9 +124,99 @@
           </nav>
         </div>
       </header>
-      <!-- 작업 공간 ( h2 지우고 사용하세요 )-->
+      
       <main class="main">
+      <section id="page01" class="section">
+           
+          </section>
+          <section id="page02" class="section">
+              <div class="search"> 
+                <img src="./img/image 16.png">
+              </div>
+              <div class="name">
+                예고편
+              </div>
+              <ul class="list">
+                <li>
+                  <img src="./img/kungfupanda4.jpg">
+                </li>
+                <li>
+                  <img src="./img/crimecity.webp">
+                  
+                </li> 
+                <li>
 
+                  <img src="./img/dune2.webp">
+                </li>
+                <li>
+                    <img src="./img/stuntman.jpeg">
+                </li>
+                <li>
+                  <img src="./img/agail.webp">
+                </li>
+              </ul>
+          </section>
+          <section id="page03" class="section">
+            <div class="name">
+              시사회/무대인사
+            </div>
+            <ul class="list">
+              <li>
+              <img src="./img/image 9.png">
+              </li>
+              <li>
+                <img src="./img/image 8.png">
+
+              </li>
+              <li>
+                <img src="./img/image 7.png">
+              </li>
+            </ul>
+            
+          </section>
+          <section id="page04" class="section">
+            <div class="name">
+              더 많은 정보
+            </div>
+            <ul class="list">
+              <li>
+                <img src="./img/image 10.png">
+
+              </li>
+              <li>
+                <img src="./img/image 11.png">
+                
+              </li>
+              <li>
+                <img src="./img/image 12.png">
+                
+              </li>
+              <li>
+                <img src="./img/image 13.png">
+                
+              </li>
+              <li>
+                <img src="./img/image 14.png">
+                
+              </li>
+            </ul>
+          </section>
+          <section id="page05" class="section">
+            <ul class="list">
+              <div class="name01">
+                베스트 리뷰
+              </div>
+              <div class="name02">
+                리뷰 내용이 보입니다.
+              </div>
+              <div class="name03">
+                더보기 >
+              </div>
+            </ul>
+          </section>    
+          <section id="page06" class="section">
+            <img src="./img/image 15.png">
+          </section>  
       </main>
     </div>
     <!-- 푸터 영역 -->
