@@ -9,7 +9,7 @@
     --font-footer-color: #6c6c6c;
     --title-padding-top: 60px;
     --font-default: "Noto Sans KR", sans-serif;
-    --font-title-size: 21px;
+    --font-title-size: 24px;
     --font-title-weight: 600;
     --icon: fontAwesome;
 }
@@ -17,12 +17,14 @@
 @media only screen and (max-width: 1068px) {
     :root {
         --default-width: 720px;
+        --font-title-size: 21px;
     }
 }
 
 @media only screen and (max-width: 734px) {
     :root {
         --default-width: 420px;
+        --font-title-size: 18px;
     }
 }
 
@@ -125,6 +127,7 @@ h2 {
 
 .mb_nav {
     display: none;
+    z-index: 5;
 }
 
 
