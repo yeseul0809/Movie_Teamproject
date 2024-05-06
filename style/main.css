@@ -56,8 +56,159 @@
 
 /* 더 많은 정보 영역*/
 
-.information {
-  height: 200px;
+.information h2 {
+  margin-bottom: 30px;
+}
+
+.rolling_movie_slides_wrapper {
+  width: 100%;
+  height: 135px;
+  overflow: hidden;
+  margin: 0 auto 6px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.rolling_movie_slides {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.rolling_movie_slides.original {
+  animation: 200s linear 0s infinite normal forwards running slide01;
+}
+
+.rolling_movie_slides.clone {
+  animation: 200s linear 0s infinite normal none running slide02;
+}
+
+.rolling_movie_slides li {
+  position: relative;
+  width: 238px;
+  height: 135px;
+  border-radius: 10px;
+}
+
+.rolling_movie_slides li {
+  margin-right: 6px
+}
+
+.rolling_movie_slides li img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+
+.rolling_movie_slides li .rolling_movie_slides-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background: rgba(0, 0, 0, .4);
+  transition: opacity .3s;
+  border-radius: 10px;
+}
+
+.rolling_movie_slides li .rolling_movie_slides_cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: transform .4s;
+  transform: translate(-50%, calc(-50%));
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 14px;
+  min-width: 28px;
+  padding: 8px 16px;
+  border-radius: 980px;
+  letter-spacing: -0.016em;
+  font-weight: 700;
+  background: #fff;
+  color: #1d1d1f;
+}
+
+.rolling_movie_slides li .rolling_movie_slides-content:hover {
+  opacity: .999
+}
+
+.rolling_movie_slides li .rolling_movie_slides-content:hover a {
+  transform: translate(-50%, -50%);
+  opacity: .999
+}
+
+
+@media only screen and (max-width: 1068px) {
+  .rolling_movie_slides li {
+    width: 171px;
+    height: 97px
+  }
+}
+
+.rolling_movie_slides li a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%
+}
+
+.rolling_movie_controls {
+  margin-top: 15px;
+  position: relative;
+}
+
+.rm_stop_btn,
+.rm_play_btn {
+  font-size: 22px;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rm_stop_btn.active,
+.rm_play_btn.active {
+  display: block;
+}
+
+/** 애니메이션 **/
+/* 원본용 */
+@keyframes slide01 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+
+  50.01% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* 복제용 */
+@keyframes slide02 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
 }
 
 /* 공지사항 영역*/

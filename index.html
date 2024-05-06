@@ -20,25 +20,39 @@
     <div class="contentWrapper">
       <!-- 해더 -->
       <header class="header">
-        <h1 id="logo">
-          <!-- 날씨 기능 구현 영역-->
-          <img src="./img/main/header_logo.png" alt="CINEMA 로고" width="150px" />
-        </h1>
-        <nav class="nav">
-          <ul class="nav_list">
-            <li>
-              <a href="#">예매</a>
-              <div class="sub_nav">
-
-              </div>
-            </li>
-            <li><a href="#">영화</a></li>
-            <li><a href="#">영화관</a></li>
-            <li><a href="#">이벤트</a></li>
-            <li><a href="#">스토어</a></li>
-          </ul>
-        </nav>
+        <div class="header_container">
+          <h1 id="logo">
+            <!-- 날씨 기능 구현 영역-->
+            <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
+          </h1>
+          <a her="#" class="nav_togleBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+          <nav class="pc_nav">
+            <ul class="nav_list">
+              <li><a href="#">예매</a>
+              </li>
+              <li><a href="#">영화</a></li>
+              <li><a href="#">영화관</a></li>
+              <li><a href="#">이벤트</a></li>
+              <li><a href="#">스토어</a></li>
+            </ul>
+          </nav>
+        </div>
       </header>
+      <!-- 모바일 네비게이션 -->
+      <nav class="mb_nav">
+        <ul class="nav_list">
+          <li><a href="#">예매</a>
+          </li>
+          <li><a href="#">영화</a></li>
+          <li><a href="#">영화관</a></li>
+          <li><a href="#">이벤트</a></li>
+          <li><a href="#">스토어</a></li>
+        </ul>
+      </nav>
       <!-- 메인 슬라이더 영역-->
       <main class="main">
         <h2>메인 슬라이더</h2>
@@ -53,9 +67,9 @@
       </form>
       <section class="section">
         <!-- 영화 상세페이지 영역 -->
-        <article class="subpage">
+        <!-- <article class="subpage">
           <div id="cardsGroup"></div>
-        </article>
+        </article> -->
         <!-- 시사회/무대인사 영역 -->
         <article class="preview">
           <h2>시사회/무대인사</h2>
@@ -63,6 +77,67 @@
         <!-- 더 많은 정보 영역 -->
         <article class="information">
           <h2>이벤트</h2>
+          <div class="rolling_movie_slides_wrapper">
+            <ul class="rolling_movie_slides">
+              <li>
+                <a href="#" target="_blank" aria-label="리뷰 보기">
+                  <img src="./img/main/event_img/1.jpg" alt="1번 이미지">
+                  <h4 class="rolling_movie_slides-content">
+                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
+                  </h4>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" aria-label="리뷰 보기">
+                  <img src="./img/main/event_img/6.jpg" alt="2번 이미지">
+                  <h4 class="rolling_movie_slides-content">
+                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
+                  </h4>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" aria-label="리뷰 보기">
+                  <img src="./img/main/event_img/10.jpg" alt="3번 이미지">
+                  <h4 class="rolling_movie_slides-content">
+                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
+                  </h4>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" aria-label="리뷰 보기">
+                  <img src="./img/main/event_img/8.jpg" alt="4번 이미지">
+                  <h4 class="rolling_movie_slides-content">
+                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
+                  </h4>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" aria-label="리뷰 보기">
+                  <img src="./img/main/event_img/12.jpg" alt="5번 이미지">
+                  <h4 class="rolling_movie_slides-content">
+                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
+                  </h4>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" aria-label="리뷰 보기">
+                  <img src="./img/main/event_img/13.jpg" alt="6번 이미지">
+                  <h4 class="rolling_movie_slides-content">
+                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
+                  </h4>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rolling_movie_controls">
+            <a href="#" class="rm_stop_btn active" class="rm_stop_btn"><i class="fa fa-stop-circle"
+                aria-hidden="true"></i></a>
+            <a href="#" class="rm_play_btn"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
+          </div>
+
+
+
         </article>
         <!-- 공지사항 영역 -->
         <article class="notice">
@@ -110,6 +185,9 @@
   <script type="module" src="./modules/display.js"></script>
   <script type="module" src="./modules/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+  <script type="module" src="./modules/common.js"></script>
+  <script type="module" src="./modules/rolling_slider.js"></script>
+</body>
 </body>
 
 </html>
