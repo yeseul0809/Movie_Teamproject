@@ -18,6 +18,7 @@ main {
   height: 525px;
   background-size: cover;
   background-position: center;
+  border-radius: 10px;
 }
 
 /* 영화 제목 */
@@ -77,7 +78,8 @@ main {
 
 /* 관련 영화 */
 #movie-genre {
-  font-size: var(--font-text-size);
+  font-size: 18px;
+  font-weight: var(--font-title-weight);
   margin: 0px;
   padding: 15px 0px;
 }
@@ -97,6 +99,11 @@ main {
 
 #recommend-list li img {
   width: 100%;
+}
+
+#recommend-list li,
+#recommend-list li img {
+  border-radius: 6px;
 }
 
 /* 리뷰 섹션 */
