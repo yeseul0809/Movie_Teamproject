@@ -40,14 +40,12 @@ function displayMoviePosters(movies) {
 
 const rmPlayBtn = document.querySelector(".rm_stop_btn");
 const rmStopBtn = document.querySelector(".rm_play_btn");
-const rollingMovieWrap = document.querySelector(
-  ".rolling_movie_slides_wrapper"
-);
+const rmWrapper = document.querySelector(".rolling_movie_slides_wrapper");
 
 // rolling_movie_slides를 복사하는 기능
 function clone() {
   const clone = rollingMovieSlides.cloneNode(true);
-  rollingMovieWrap.appendChild(clone);
+  rmWrapper.appendChild(clone);
 
   rollingMovieSlides.offsetWidth + "px";
 
@@ -57,7 +55,6 @@ function clone() {
 
 // 애니메이션 재생 기능
 function animationRunning(run) {
-  // 변수 추가해서 넣기
   const rmOriginal = document.querySelector(".rolling_movie_slides.original");
   const rmClone = document.querySelector(".rolling_movie_slides.clone");
   rmOriginal.style.WebkitAnimationPlayState = `${run}`;
@@ -88,11 +85,11 @@ rmPlayBtn.addEventListener("click", (e) => {
 });
 
 //마우스 오버했을때 재생, 정지 이벤트
-rollingMovieWrap.addEventListener("mouseenter", () => {
+rmWrapper.addEventListener("mouseenter", () => {
   animationPaused("paused");
 });
 
-rollingMovieWrap.addEventListener("mouseleave", () => {
+rmWrapper.addEventListener("mouseleave", () => {
   if (rmPlayBtn.classList.contains("active")) {
     animationRunning("running");
   }
