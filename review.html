@@ -21,8 +21,10 @@
       <header class="header">
         <div class="header_container">
           <h1 id="logo">
-            <!-- 날씨 기능 구현 영역-->
-            <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
+            <a href="/" aria-label="홈으로">
+              <!-- 날씨 기능 구현 영역-->
+              <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
+            </a>
           </h1>
           <a her="#" class="nav_toggleBtn">
             <span></span>
@@ -31,12 +33,11 @@
           </a>
           <nav class="pc_nav">
             <ul class="nav_list">
-              <li><a href="#">예매</a>
-              </li>
-              <li><a href="#">영화</a></li>
-              <li><a href="#">영화관</a></li>
-              <li><a href="#">이벤트</a></li>
-              <li><a href="#">스토어</a></li>
+              <li><a href="/review.html?id=13">Review</a></li>
+              <li><a href="#">Reservation</a></li>
+              <li><a href="#">Movies</a></li>
+              <li><a href="#">Event</a></li>
+              <li><a href="#">Store</a></li>
             </ul>
           </nav>
         </div>
@@ -44,42 +45,48 @@
       <!-- 모바일 네비게이션 -->
       <nav class="mb_nav">
         <ul class="nav_list">
-          <li><a href="#">예매</a>
-          </li>
-          <li><a href="#">영화</a></li>
-          <li><a href="#">영화관</a></li>
-          <li><a href="#">이벤트</a></li>
-          <li><a href="#">스토어</a></li>
+          <li><a href="/review.html?id=13">Review</a></li>
+          <li><a href="#">Reservation</a></li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">Event</a></li>
+          <li><a href="#">Store</a></li>
         </ul>
       </nav>
       <main class="main">
         <div class="movieInformation">
           <div class="poster" id="movie-poster"></div>
           <div class="overview">
-            <p id="movie-title"></p>
+            <h2 id="movie-title"></h2>
             <ul class="movie_info">
-              <li><span class="movie_info_date">2024.05.09</span> 개봉</li>
-              <li><span class="movie_info_time"><i class="fa fa-clock-o" aria-hidden="true"></i> 129분</span></li>
-              <li><span class="movie_info_grade"><span class="roboto">전체관람가</span></span></li>
-              <li><span class="movie_info_moviegoers">27.7</span>만명</li>
+              <li><span class="movie_info_date">2024.05.09</span> Release</li>
+              <li><span class="movie_info_time"><i class="fa fa-clock-o" aria-hidden="true"></i> 129 minutes</span></li>
+              <li><span class="movie_info_grade"><span class="roboto"> all ages</span></span></li>
+              <li><span class="movie_info_moviegoers">27.7</span>viewers</li>
             </ul>
             <p id="movie-description"></p>
             <p id="movie-rating"></p>
             <div class="movieRecommend">
-              <p id="movie-genre">Related Movies<button class="relatePrevBtn"><</button>
-                <button class="relateNextBtn">></button></p>
-              <p class="noRelatedWarning hidden">No Related Movies...</p>  
-              <ul id="recommend-list"></ul>             
-            
+              <div class="movieRecommend_top">
+                <h3 id="movie-genre">related movie</h3>
+                <div class="relate_btn_container">
+                  <button class="relatePrevBtn">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i></button> <button class="relateNextBtn"><i
+                      class="fa fa-angle-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <p class="noRelatedWarning hidden">비슷한 영화가 없어요 ..😶‍🌫️ </p>
+              <ul id="recommend-list"></ul>
+
             </div>
           </div>
         </div>
         <div class="review-section">
           <h3>Write a Review</h3>
           <form id="review-form">
-            <textarea id="review-text" placeholder="리뷰를 작성해주세요." autofocus></textarea>
-            <input type="password" id="review-password" placeholder="비밀번호를 입력하세요." />
-            <button type="submit" id="submit">리뷰 작성</button>
+            <textarea id="review-text" placeholder="Please write a review" autofocus></textarea>
+            <input type="password" id="review-password" placeholder="Please enter your password" />
+            <button type="submit" id="submit">submit</button>
           </form>
           <h3 id="reviews">Reviews</h3>
           <ul class="review-list" id="review-list"></ul>

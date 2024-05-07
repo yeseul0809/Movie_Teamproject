@@ -10,6 +10,7 @@ main {
   grid-gap: 60px;
   margin: 60px auto;
   place-items: center;
+  align-items: baseline;
 }
 
 /* 영화 포스터 */
@@ -18,12 +19,14 @@ main {
   height: 525px;
   background-size: cover;
   background-position: center;
+  border-radius: 10px;
 }
 
 /* 영화 제목 */
 #movie-title {
   font-size: var(--font-title-size);
   font-weight: var(--font-title-weight);
+  padding-top: 30px;
   margin-bottom: 30px;
 }
 
@@ -69,21 +72,32 @@ main {
 }
 
 #movie-rating {
-  border-bottom: solid 1px rgb(77, 77, 77);
+  border-bottom: solid 1px #ccc;
   margin: 0px;
   padding: 20px 0px;
-  font-size: 1.3rem;
+  font-size: var(--font-sub-title-size);
 }
 
 /* 관련 영화 */
 .movieRecommend {
-  width: 572px;
+  width: 100%;
   height: 300px;
   overflow: hidden;
   position: relative;
 }
 
-.movieRecommend button {
+.movieRecommend_top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.relate_btn_container {
+  padding-top: 10px;
+}
+
+.movieRecommend_top .relate_btn_container button {
   border: none;
   background-color: transparent;
   font-size: 24px;
@@ -95,19 +109,16 @@ main {
 }
 
 #movie-genre {
-  font-size: var(--font-text-size);
+  font-size: var(--font-sub-title-size);
+  font-weight: var(--font-title-weight);
   margin: 0px;
   padding: 15px 0px;
-  width: 600px;
-  display: flex;
   align-items: center;
 }
 
 #recommend-list {
   display: flex;
   gap: 5px;
-  width: 572px;
-  height: 225px;
   position: absolute;
   left: 0;
 }
@@ -133,6 +144,11 @@ main {
   display: none;
 }
 
+#recommend-list li,
+#recommend-list li img {
+  border-radius: 6px;
+}
+
 /* 리뷰 섹션 */
 .review-section {
   display: grid;
@@ -142,7 +158,7 @@ main {
   border-top: solid 1px #ccc;
 }
 
-.review-section > h3 {
+.review-section>h3 {
   text-align: center;
   align-self: center;
   font-weight: var(--font-title-weight);
@@ -157,6 +173,7 @@ main {
 
 #review-text {
   font-size: var(--font-text-size);
+  font-weight: 500;
   line-height: 100%;
   padding-left: 14px;
   padding-top: 14px;
@@ -165,6 +182,7 @@ main {
 #review-password {
   text-align: center;
   font-size: var(--font-text-size);
+  padding: 10px;
 }
 
 #submit,
@@ -172,7 +190,7 @@ main {
   font-size: var(--font-text-size);
   background-color: var(--gray-button-color);
   color: #fff;
-  padding: 6px 8px;
+  padding: 8px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
@@ -203,6 +221,11 @@ main {
   background-color: var(--gray-button-color);
 }
 
+.review_btn_wrap {
+  display: inline-block;
+  float: right;
+}
+
 /* 반응형 */
 
 @media only screen and (max-width: 1068px) {
@@ -223,9 +246,8 @@ main {
     width: 398px;
   }
 
-  #recommend-list li {
-    width: 100px;
-    height: 150px;
+  #review-form {
+    grid-template-columns: 4fr 1.5fr 1.5fr;
   }
 }
 
@@ -252,5 +274,19 @@ main {
 
   .overview {
     width: 100%;
+  }
+
+  .movieRecommend_top .relate_btn_container button {
+    font-size: 21px;
+  }
+
+  .review_btn_wrap {
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie_info {
+    flex-direction: column;
   }
 }
