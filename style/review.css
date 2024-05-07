@@ -124,6 +124,15 @@ main {
   width: 150px;
 }
 
+.noRelatedWarning {
+  font-size: 24px;
+  color: darkgray;
+}
+
+.hidden {
+  display: none;
+}
+
 /* 리뷰 섹션 */
 .review-section {
   display: grid;

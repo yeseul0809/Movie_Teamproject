@@ -80,7 +80,12 @@ function getFilteredMoviesData(data) {
   return filterMovies;
 }
 
+const noRelatedWarning = document.querySelector('.noRelatedWarning');
+
 function makeRelatedMovies(filterMovies) {
+  if (filterMovies.length === 0) {
+    noRelatedWarning.classList.remove('hidden');
+  }
   const recommendList = document.querySelector('#recommend-list');
   filterMovies.forEach((movie) => {
     const list = document.createElement('li');
