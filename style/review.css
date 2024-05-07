@@ -45,7 +45,7 @@ main {
 }
 
 .movie_info li::before {
-  content: "";
+  content: '';
   position: absolute;
   left: -9px;
   top: 4px;
@@ -76,15 +76,40 @@ main {
 }
 
 /* 관련 영화 */
+.movieRecommend {
+  width: 572px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.movieRecommend button {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.relatePrevBtn {
+  margin: 0 10px 0 10px;
+}
+
 #movie-genre {
   font-size: var(--font-text-size);
   margin: 0px;
   padding: 15px 0px;
+  width: 600px;
+  display: flex;
+  align-items: center;
 }
 
 #recommend-list {
   display: flex;
   gap: 5px;
+  width: 572px;
+  height: 225px;
+  position: absolute;
+  left: 0;
 }
 
 #recommend-list li {
@@ -96,7 +121,7 @@ main {
 }
 
 #recommend-list li img {
-  width: 100%;
+  width: 150px;
 }
 
 /* 리뷰 섹션 */
@@ -108,7 +133,7 @@ main {
   border-top: solid 1px #ccc;
 }
 
-.review-section>h3 {
+.review-section > h3 {
   text-align: center;
   align-self: center;
   font-weight: var(--font-title-weight);
@@ -141,7 +166,7 @@ main {
   padding: 6px 8px;
   border-radius: 4px;
   border: none;
-  cursor: pointer
+  cursor: pointer;
 }
 
 /* 리뷰 리스트 */

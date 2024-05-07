@@ -238,22 +238,36 @@ function deleteReview(movieId, index) {
   });
 }
 
-// fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     getCurrentMovie(data);
-//     document.querySelector(
-//       '#movie-poster'
-//     ).style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${data.poster_path})`;
-//     document.getElementById('movie-title').textContent = data.title;
-//     document.getElementById('movie-description').textContent = data.overview;
-//     document.getElementById(
-//       'movie-rating'
-//     ).textContent = `Rating : ${data.vote_average}`;
-//   })
-//   .catch((err) => console.error(err));
+const prevRelateBtn = document.querySelector('.relatePrevBtn');
+const nextRelateBtn = document.querySelector('.relateNextBtn');
+const relateWrap = document.querySelector('#recommend-list');
 
-// const movieRecommend = document.querySelector('.movieRecommend');
-// const newEl = document.createElement('p');
-// newEl.innerText = '추가 테스트!!';
-// movieRecommend.appendChild(newEl);
+let current = 0;
+
+function moveRelateSlide(direction) {
+  const relateSlide = document.querySelector('.relatedList');
+  const slideWidth = relateSlide?.offsetWidth;
+  let newLeft = current;
+
+  if (direction === 1) {
+    newLeft -= slideWidth + 5;
+  } else if (direction === -1) {
+    newLeft += slideWidth + 5;
+  }
+
+  const maxLeft = 0;
+  const minLeft = -(relateWrap.children.length - 1) * slideWidth;
+  if (newLeft > maxLeft) {
+    newLeft = maxLeft;
+  } else if (newLeft < minLeft) {
+    newLeft = minLeft;
+  }
+
+  relateWrap.style.transition = '300ms';
+  relateWrap.style.left = `${newLeft}px`;
+
+  current = newLeft;
+}
+
+prevRelateBtn.addEventListener('click', () => moveRelateSlide(-1));
+nextRelateBtn.addEventListener('click', () => moveRelateSlide(1));
