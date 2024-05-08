@@ -1,6 +1,6 @@
 /* 검색창  영역*/
 .search {
-  width: 560px;
+  width: 720px;
   margin: 50px auto 0 auto;
   position: relative;
 }
@@ -8,9 +8,9 @@
 #movieSearch {
   width: 100%;
   border-radius: 30px;
-  border: 1.5px solid #dfe1e5;
+  border: 2px solid #dfe1e5;
   padding: 20px 25px;
-  font-family: var(--icon);
+  font-family: var(--font-default);
 }
 
 #searchButton {
@@ -19,10 +19,11 @@
   border: 0;
   outline: none;
   position: absolute;
-  right: 10px;
+  right: 16px;
   top: 16px;
   margin: 0;
   background-color: transparent;
+  font-family: var(--icon);
 }
 
 .searching {
@@ -149,8 +150,7 @@
 }
 
 /* 영화 상세페이지 영역*/
-.subpage {
-}
+.subpage {}
 
 /* 시사회/무대인사 영역*/
 .preview {
@@ -303,6 +303,7 @@
 
 /* 반응형 */
 @media only screen and (max-width: 1068px) {
+
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
     height: 300px;
@@ -337,6 +338,7 @@
 }
 
 @media only screen and (max-width: 768px) {
+
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
     height: 225px;
@@ -360,6 +362,7 @@
     width: 320px;
   }
 }
+
 
 /* 광고 배너 영역*/
 .banner {
