@@ -10,41 +10,40 @@
 /* 기본 그리드 레이아웃 */
 #cardsGroup {
   display: grid;
+  grid-template-columns: repeat(4, 7fr);
   grid-gap: 15px;
   justify-content: center;
-  margin: 30px;
-  padding: 40px;
+  margin: 30px 0 100px 0;
 }
 
 .card:hover {
   background-color: rgb(0, 0, 0);
-  color: rgb(203, 34, 34);
+  color: var(--main-color);
 }
 
 .card {
-  width: 350px;
-  margin: 20px;
-  padding: 30px;
-  background-color: beige;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.808);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   box-sizing: border-box;
   cursor: pointer;
-  justify-self: center;
+  text-align: center;
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 300px;
+  margin-top: 15px;
 }
 
 .card h2 {
-  margin-top: 15px;
-  font-size: 50px;
+  font-size: 25px;
   font-family: "Amatic SC", sans-serif;
   font-weight: 700;
   font-style: normal;
   text-align: center;
+  padding: 15px;
 }
 
 .card p {
@@ -57,26 +56,31 @@
   margin-top: 20px;
 }
 
+@media only screen and (max-width: 1068px) {
+  #cardsGroup {
+    grid-template-columns: repeat(3, 7fr);
+  }
+}
+
 /* 반응형 스타일 */
 @media screen and (max-width: 768px) {
-  #cardsGroup {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0px;
-    margin: 0;
-    padding: 10px;
-  }
   .card {
     width: 180px;
     margin: 0 auto;
-    margin-bottom: 13%;
-    height: 340px;
+    height: 330px;
     overflow-y: auto;
+  }
+
+  .card img {
+    width: 150px;
+    height: 225px;
   }
 
   .card::-webkit-scrollbar {
     width: 1px;
     border-radius: 10px;
   }
+
   .card::-webkit-scrollbar-track {
     background-color: transparent;
     border-radius: 10px;
@@ -85,7 +89,7 @@
 
   .card::-webkit-scrollbar-thumb {
     height: 50%;
-    background-color: rgb(203, 34, 34);
+    background-color: var(--main-color);
     border-radius: 10px;
   }
 
@@ -98,8 +102,21 @@
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (max-width: 630px) {
   #cardsGroup {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(2, 0.5fr);
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .card {
+    width: 150px;
+    height: 300px;
+  }
+
+  .card img {
+    width: 130px;
+    height: 195px;
   }
 }

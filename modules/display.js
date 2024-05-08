@@ -9,22 +9,13 @@ function displayMovies(movies) {
     card.innerHTML = `
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}">
             <h2>${movie.title}</h2>
-            <p>${movie.overview}</p>
-            <p>Rating : ${movie.vote_average}</p>
         `;
 
     card.addEventListener('click', () => {
-      Swal.fire({
-        title: `Movie ID : ${movie.id}`,
-        text: 'ENJOY MOVIE SEARCHING!',
-        imageUrl: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
-        imageAlt: movie.title,
-        confirmButtonColor: 'rgb(203, 34, 34)',
-      });
       window.location.href = `review.html?id=${movie.id}`;
     });
 
-    cardsGroup.appendChild(card);
+    cardsGroup.prepend(card);
   });
 }
 
@@ -40,22 +31,13 @@ function displayMatchingMovies(movies, searchInput) {
       card.innerHTML = `
                 <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}">
                 <h2>${movie.title}</h2>
-                <p>${movie.overview}</p>
-                <p>Rating : ${movie.vote_average}</p>
             `;
 
       card.addEventListener('click', () => {
-        Swal.fire({
-          title: `Movie ID : ${movie.id}`,
-          text: 'ENJOY MOVIE SEARCHING!',
-          imageUrl: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
-          imageAlt: movie.title,
-          confirmButtonColor: 'rgb(203, 34, 34)',
-        });
         window.location.href = `review.html?id=${movie.id}`;
       });
 
-      cardsGroup.appendChild(card);
+      cardsGroup.prepend(card);
     }
   });
 }
