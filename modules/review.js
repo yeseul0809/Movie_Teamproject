@@ -157,14 +157,14 @@ reviewForm.addEventListener("submit", (event) => {
 function displayReviews(movieId) {
   reviewList.innerHTML = "";
   reviews[movieId].forEach((review, index) => {
-    const reviewItem = document.createElement("div");
+    const reviewItem = document.createElement("li");
     reviewItem.classList.add("review_wrap");
-    reviewItem.textContent = `${review.text} (${review.timestamp})`;
+    reviewItem.innerHTML = `<div>${review.text} (${review.timestamp})</div>`;
     reviewList.appendChild(reviewItem);
 
     const buttonWrap = document.createElement("div");
     buttonWrap.classList.add("review_btn_wrap");
-    reviewList.appendChild(buttonWrap);
+    reviewItem.appendChild(buttonWrap);
 
     //수정 버튼 추가
     const editButton = document.createElement("button");
