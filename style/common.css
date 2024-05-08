@@ -113,7 +113,7 @@ h2 {
     content: '';
     border-bottom: solid 2px var(--main-color);
     position: relative;
-    top: 18px;
+    top: 17.5px;
     transform: scaleX(0);
     transition: transform 300ms ease-in-out;
 }
