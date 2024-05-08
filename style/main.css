@@ -1,3 +1,14 @@
+/*header*/
+#Wlogo {
+  display: flex;
+  align-items: center;
+}
+
+#Wlogo img {
+  width: 85px;
+}
+
+
 /* Main Slider */
 #carouselContainer {
   width: 100%;
