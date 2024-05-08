@@ -10,6 +10,7 @@
 /* 기본 그리드 레이아웃 */
 #cardsGroup {
   display: grid;
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 15px;
   justify-content: center;
   margin: 30px;
@@ -22,29 +23,29 @@
 }
 
 .card {
-  width: 350px;
-  margin: 20px;
-  padding: 30px;
-  background-color: beige;
+  width: 90%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.808);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   box-sizing: border-box;
   cursor: pointer;
-  justify-self: center;
+  text-align: center;
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  width: 70%;
+  height: 70%;
+  margin-top: 5%;
 }
 
 .card h2 {
-  margin-top: 15px;
-  font-size: 50px;
+  font-size: 25px;
   font-family: "Amatic SC", sans-serif;
   font-weight: 700;
   font-style: normal;
   text-align: center;
+  padding: 5px;
 }
 
 .card p {
@@ -100,6 +101,6 @@
 
 @media screen and (min-width: 769px) {
   #cardsGroup {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(4, 7fr);
   }
 }

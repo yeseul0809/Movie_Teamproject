@@ -93,18 +93,12 @@
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
-      <!-- 검색창 영역 -->
-      <form class="search" id="searchForm">
-        <input type="text" id="movieSearch" name="search" placeholder="영화 제목을 검색해보세요" autofocus />
-        <button type="submit" id="searchButton">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
-      <section class="section">
+      
 
-        <!-- 시사회/무대인사 영역 -->
-        <article class="preview">
-          <h2>시사회/무대인사</h2>
+      <section class="section">
+        <!-- 공지사항 영역 -->
+        <article class="notice">
+          <h2>공지사항</h2>
         </article>
         <!-- 더 많은 정보 영역 -->
         <article class="information">
@@ -120,16 +114,26 @@
             </ul>
           </div>
         </article>
+        <!-- 검색창 영역 -->
+      <form class="search" id="searchForm">
+        <input type="text" id="movieSearch" name="search" placeholder="영화 제목을 검색해보세요" autofocus />
+        <button type="submit" id="searchButton">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
 
 
         <!-- 영화 상세페이지 영역 -->
         <article class="subpage">
+          <h2>이번주 인기 영화</h2>
           <div id="cardsGroup"></div>
         </article>
         <!-- 광고 배너 영역-->
         <article class="banner">
-          <h2>광고 배너</h2>
-
+          <!-- <h2>광고 배너</h2> -->
+          <div id="adBanner">
+            <img class="ad_Banner" src="./img/main/AbigailBanner.jpg" alt="광고 배너">
+          </div>
         </article>
       </section>
     </div>

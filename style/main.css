@@ -7,10 +7,9 @@
 
 #movieSearch {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 30px;
   border: 1.5px solid #dfe1e5;
-  margin: 10px 0;
-  padding: 10px 12px;
+  padding: 20px 25px;
   font-family: var(--icon);
 }
 
@@ -29,7 +28,7 @@
 .searching {
   padding-top: 10px;
   padding-right: 10px;
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: "Do Hyeon", sans-serif;
   font-size: 30px;
   color: rgb(213 197 197);
 }
@@ -150,7 +149,8 @@
 }
 
 /* 영화 상세페이지 영역*/
-.subpage {}
+.subpage {
+}
 
 /* 시사회/무대인사 영역*/
 .preview {
@@ -227,7 +227,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transition: transform .4s;
+  transition: transform 0.4s;
   transform: translate(-50%, -50%);
   cursor: pointer;
   text-align: center;
@@ -303,7 +303,6 @@
 
 /* 반응형 */
 @media only screen and (max-width: 1068px) {
-
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
     height: 300px;
@@ -338,10 +337,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .slide_text_box {
-    width: 260px;
-  }
-
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
     height: 225px;
@@ -366,9 +361,10 @@
   }
 }
 
+}
 
-
-/* 공지사항 영역*/
-.notice {
+/* 광고 배너 영역*/
+.banner {
   height: 200px;
+  margin-bottom: 5%;
 }
