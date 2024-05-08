@@ -1,41 +1,4 @@
-/* Search */
-.search {
-  width: 720px;
-  margin: 50px auto 0 auto;
-  position: relative;
-}
-
-#movieSearch {
-  width: 100%;
-  border-radius: 30px;
-  border: 2px solid #dfe1e5;
-  padding: 16px 23px;
-  font-family: var(--font-default);
-  font-size: 18px;
-}
-
-#searchButton {
-  font-size: 21px;
-  color: #585858;
-  border: 0;
-  outline: none;
-  position: absolute;
-  right: 16px;
-  top: 20px;
-  margin: 0;
-  background-color: transparent;
-  font-family: var(--icon);
-}
-
-.searching {
-  padding-top: 10px;
-  padding-right: 10px;
-  font-family: 'Do Hyeon', sans-serif;
-  font-size: 30px;
-  color: rgb(213 197 197);
-}
-
-/* 메인 슬라이더 영역 ( 지우시고 작업하시면 됩니다 )*/
+/* Main Slider */
 #carouselContainer {
   width: 100%;
   height: 90vh;
@@ -150,7 +113,7 @@
   visibility: hidden;
 }
 
-/* notice */
+/* Notice */
 .notice {
   margin-bottom: 30px;
 }
@@ -209,7 +172,7 @@
   border-left: 1px solid #707070;
 }
 
-/* Box office */
+/* Box Office */
 .information {
   position: relative;
   padding-top: 50px;
@@ -323,21 +286,8 @@
   display: block;
 }
 
-/* 광고 배너 영역*/
-.banner {
-  margin-bottom: 90px;
-}
-
-#adBanner {
-  width: 980px;
-  height: 190px;
-  background-image: url("../img/main/AbigailBanner_large.jpg");
-  background-size: cover;
-}
-
-
-/** animation **/
-/* original */
+/** Animation **/
+/* Original */
 @keyframes slide01 {
   0% {
     transform: translateX(0);
@@ -356,7 +306,7 @@
   }
 }
 
-/* clone */
+/* Clone */
 @keyframes slide02 {
   0% {
     transform: translateX(0);
@@ -367,8 +317,119 @@
   }
 }
 
-/* 반응형 */
+/* Search */
+.search {
+  width: 720px;
+  margin: 50px auto 0 auto;
+  position: relative;
+}
+
+#movieSearch {
+  width: 100%;
+  border-radius: 30px;
+  border: 2px solid #dfe1e5;
+  padding: 16px 23px;
+  font-family: var(--font-default);
+  font-size: 18px;
+}
+
+#searchButton {
+  font-size: 21px;
+  color: #585858;
+  border: 0;
+  outline: none;
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  margin: 0;
+  background-color: transparent;
+  font-family: var(--icon);
+}
+
+.searching {
+  padding-top: 10px;
+  padding-right: 10px;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 30px;
+  color: rgb(213 197 197);
+}
+
+/* Weekly Movie */
+/* Card Font */
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Do+Hyeon&family=Macondo&display=swap");
+
+* {
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#cardsGroup {
+  display: grid;
+  grid-template-columns: repeat(4, 7fr);
+  grid-gap: 15px;
+  justify-content: center;
+  margin: 30px 0 100px 0;
+}
+
+.card:hover {
+  background-color: rgb(0, 0, 0);
+  color: var(--main-color);
+}
+
+.card {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.808);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+}
+
+.card img {
+  width: 200px;
+  height: 300px;
+  margin-top: 15px;
+}
+
+.card h2 {
+  font-size: 25px;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  padding: 15px;
+}
+
+.card p {
+  font-size: 20px;
+  line-height: 22px;
+  color: #666;
+  font-family: "Macondo";
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 20px;
+}
+
+/* Banner */
+.banner {
+  margin-bottom: 90px;
+}
+
+#adBanner {
+  width: 980px;
+  height: 190px;
+  background-image: url("../img/main/AbigailBanner_large.jpg");
+  background-size: cover;
+}
+
+/* Responsive Style */
 @media only screen and (max-width: 1068px) {
+  .youtubePopup {
+    width: 720px;
+    height: 464px;
+  }
 
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
@@ -392,6 +453,10 @@
     margin-bottom: 30px;
   }
 
+  #cardsGroup {
+    grid-template-columns: repeat(3, 7fr);
+  }
+
   .fa-chevron-left,
   .fa-chevron-right {
     font-size: 40px;
@@ -410,6 +475,11 @@
 }
 
 @media only screen and (max-width: 768px) {
+
+  .youtubePopup {
+    width: 432px;
+    height: 278px;
+  }
 
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
@@ -437,12 +507,75 @@
     padding: 15px 20px;
   }
 
+  .card {
+    width: 180px;
+    margin: 0 auto;
+    height: 330px;
+    overflow-y: auto;
+  }
+
+  .card img {
+    width: 150px;
+    height: 225px;
+  }
+
+  .card::-webkit-scrollbar {
+    width: 1px;
+    border-radius: 10px;
+  }
+
+  .card::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+  .card::-webkit-scrollbar-thumb {
+    height: 50%;
+    background-color: var(--main-color);
+    border-radius: 10px;
+  }
+
+  .card h2 {
+    font-size: var(--font-sub-title-size);
+  }
+
+  .card p {
+    font-size: var(--font-default);
+  }
+
   #adBanner {
     width: 419px;
     height: 77px;
     background-image: url("../img/main/AbigailBanner_medium.jpg");
   }
 }
+
+@media screen and (max-width: 630px) {
+  #cardsGroup {
+    grid-template-columns: repeat(2, 0.5fr);
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 435px) {
+
+  .youtubePopup {
+    width: 302px;
+    height: 194px;
+  }
+
+  .card {
+    width: 150px;
+    height: 300px;
+  }
+
+  .card img {
+    width: 130px;
+    height: 195px;
+  }
+}
+
 
 @media only screen and (max-width: 420px) {
   #adBanner {
@@ -455,8 +588,3 @@
     width: 320px;
   }
 }
-
-/* .banner {
-  height: 200px;
-  margin-bottom: 5%;
-} */

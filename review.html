@@ -17,12 +17,11 @@
 <body>
   <div id="wrapper">
     <div class="contentWrapper">
-      <!-- 해더 -->
+      <!-- Header -->
       <header class="header">
         <div class="header_container">
           <h1 id="logo">
             <a href="/" aria-label="홈으로">
-              <!-- 날씨 기능 구현 영역-->
               <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
             </a>
           </h1>
@@ -42,7 +41,7 @@
           </nav>
         </div>
       </header>
-      <!-- 모바일 네비게이션 -->
+      <!-- Mobile Nav -->
       <nav class="mb_nav">
         <ul class="nav_list">
           <li><a href="/review.html?id=13">Review</a></li>
@@ -54,7 +53,9 @@
       </nav>
       <main class="main">
         <div class="movieInformation">
+          <!-- movie poster -->
           <div class="poster" id="movie-poster"></div>
+          <!-- movie title, information, description, rating  -->
           <div class="overview">
             <h2 id="movie-title"></h2>
             <ul class="movie_info">
@@ -65,9 +66,10 @@
             </ul>
             <p id="movie-description"></p>
             <p id="movie-rating"></p>
+            <!-- related movie -->
             <div class="movieRecommend">
               <div class="movieRecommend_top">
-                <h3 id="movie-genre">related movie</h3>
+                <h3 id="movie-genre">Related Movie</h3>
                 <div class="relate_btn_container">
                   <button class="relatePrevBtn">
                     <i class="fa fa-angle-left" aria-hidden="true"></i></button> <button class="relateNextBtn"><i
@@ -77,22 +79,22 @@
               </div>
               <p class="noRelatedWarning hidden">Sorry, there's no similar movie..😶‍🌫️ </p>
               <ul id="recommend-list"></ul>
-
             </div>
           </div>
         </div>
+        <!-- review -->
         <div class="review-section">
           <h3>Write a Review</h3>
           <form id="review-form">
             <textarea id="review-text" placeholder="Please write a review" autofocus></textarea>
             <input type="password" id="review-password" placeholder="Please enter your password" />
-            <button type="submit" id="submit">submit</button>
+            <button type="submit" id="submit">Submit</button>
           </form>
           <h3 id="reviews">Reviews</h3>
           <ul class="review-list" id="review-list"></ul>
       </main>
     </div>
-    <!-- 푸터 영역 -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="footer_content">
         <div class="footer_infbox">
@@ -126,8 +128,8 @@
   </div>
 </body>
 <script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
-<script type="module" src="./modules/review.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+<script type="module" src="./modules/review.js" defer></script>
 <script type="module" src="./modules/common.js"></script>
 
 </html>
