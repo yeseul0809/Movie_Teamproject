@@ -104,4 +104,4 @@ function setSlideWidth() {
 window.addEventListener('resize', setSlideWidth);
 window.addEventListener('load', setSlideWidth);
 
-// setInterval(() => moveSlide(1), 10000);
+setInterval(() => moveSlide(1), 10000);
