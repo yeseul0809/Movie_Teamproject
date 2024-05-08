@@ -1,8 +1,8 @@
-/*구글 폰트 변경*/
+/* Font */
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Do+Hyeon&family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Noto+Sans+KR:wght@100..900&display=swap");
 
-/* 공통 */
+/* common  */
 :root {
     --default-width: 980px;
     --grey-color: #f5f5f7;
@@ -73,7 +73,7 @@ h2 {
     flex: 1;
 }
 
-/* 상단 해더 영역*/
+/* Header */
 .header {
     border-bottom: 1px solid #ddd;
 }
@@ -138,6 +138,64 @@ h2 {
 }
 
 
+/* Footer */
+.footer {
+    background-color: var(--grey-color);
+}
+
+.footer_content {
+    padding: 20px 0 30px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: var(--font-footer-color);
+}
+
+.footer_logo {
+    width: 140px;
+}
+
+.footer_infbox ol {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 10px 0;
+}
+
+.footer_infbox ol li {
+    margin-right: 14px;
+    position: relative;
+}
+
+.footer_infbox ol li::after {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    height: 10px;
+    border-left: 1px solid var(--font-footer-color);
+}
+
+.footer_infbox ol li:first-child::after {
+    display: none;
+}
+
+.social_media_list {
+    display: flex;
+    flex-direction: row;
+    width: 140px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.social_media_list img {
+    width: 35px;
+}
+
+.social_media_list li:first-child image {
+    vertical-align: 4px;
+}
+
+/* Responsive Style */
 @media screen and (max-width:768px) {
     .header_container {
         justify-content: center;
@@ -236,67 +294,7 @@ h2 {
         -webkit-transform: translateY(-8px) rotate(45deg);
         transform: translateY(-8px) rotate(45deg);
     }
-}
 
-
-/* 푸터 영역*/
-.footer {
-    background-color: var(--grey-color);
-}
-
-.footer_content {
-    padding: 20px 0 30px 0;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    color: var(--font-footer-color);
-}
-
-.footer_logo {
-    width: 140px;
-}
-
-.footer_infbox ol {
-    display: flex;
-    flex-direction: row;
-    margin: 20px 0 10px 0;
-}
-
-.footer_infbox ol li {
-    margin-right: 14px;
-    position: relative;
-}
-
-.footer_infbox ol li::after {
-    content: "";
-    position: absolute;
-    left: -6px;
-    top: 5px;
-    height: 10px;
-    border-left: 1px solid var(--font-footer-color);
-}
-
-.footer_infbox ol li:first-child::after {
-    display: none;
-}
-
-.social_media_list {
-    display: flex;
-    flex-direction: row;
-    width: 140px;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.social_media_list img {
-    width: 35px;
-}
-
-.social_media_list li:first-child image {
-    vertical-align: 4px;
-}
-
-@media screen and (max-width:768px) {
     .footer_content {
         flex-direction: column-reverse;
     }

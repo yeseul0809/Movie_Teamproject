@@ -556,7 +556,7 @@
   #adBanner {
     width: 419px;
     height: 77px;
-    background-image: url("../img/main/AbigailBanner_medium.jpg");
+    background-image: url("../img/main/AbigailBanner_small.jpg");
   }
 }
 
@@ -590,7 +590,7 @@
   #adBanner {
     width: 320px;
     height: 59px;
-    background-image: url("../img/main/AbigailBanner_medium.jpg");
+    background-image: url("../img/main/AbigailBanner_xsmall.jpg");
   }
 
   .search {
