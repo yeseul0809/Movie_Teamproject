@@ -38,3 +38,22 @@ fetch(
     });
   })
   .catch((err) => console.error(err));
+
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.noticeItem');
+  let index = 0;
+
+  if (items.length > 0) {
+    items[index].classList.add('noticeVisible');
+  }
+
+  const showNextItem = () => {
+    items[index].classList.remove('noticeVisible');
+
+    index = (index + 1) % items.length;
+
+    items[index].classList.add('noticeVisible');
+  };
+
+  setInterval(showNextItem, 5000);
+});

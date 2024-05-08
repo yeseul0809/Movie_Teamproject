@@ -117,7 +117,8 @@
 }
 
 /* 영화 상세페이지 영역*/
-.subpage {}
+.subpage {
+}
 
 /* 시사회/무대인사 영역*/
 .preview {
@@ -194,7 +195,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transition: transform .4s;
+  transition: transform 0.4s;
   transform: translate(-50%, -50%);
   cursor: pointer;
   text-align: center;
@@ -270,7 +271,6 @@
 
 /* 반응형 */
 @media only screen and (max-width: 1068px) {
-
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
     height: 300px;
@@ -295,7 +295,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-
   .rolling_movie_slides_wrapper,
   .rolling_movie_slides li {
     height: 225px;
@@ -306,11 +305,30 @@
   }
 }
 
-
-
 /* 공지사항 영역*/
 .notice {
   height: 200px;
+}
+
+.noticeContainer {
+  position: relative;
+}
+
+.noticeItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 3s ease-in-out, transform 1s ease;
+  transform: translateY(5px);
+  visibility: hidden;
+}
+
+.noticeVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
 }
 
 /* 광고 배너 영역*/

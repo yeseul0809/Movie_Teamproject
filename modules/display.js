@@ -28,6 +28,8 @@ function displayMovies(movies) {
   });
 }
 
+console.log('cardsGroup:::', cardsGroup);
+
 // 입력받은 문자와 영화제목 일치하면 보여주는 함수
 function displayMatchingMovies(movies, searchInput) {
   const cardsGroup = document.getElementById('cardsGroup');

@@ -158,7 +158,7 @@ main {
   border-top: solid 1px #ccc;
 }
 
-.review-section>h3 {
+.review-section > h3 {
   text-align: center;
   align-self: center;
   font-weight: var(--font-title-weight);
