@@ -19,11 +19,10 @@
 <body>
   <div id="wrapper">
     <div class="contentWrapper">
-      <!-- 해더 -->
+      <!-- Header -->
       <header class="header">
         <div class="header_container">
           <h1 id="logo">
-            <!-- 날씨 기능 구현 영역-->
             <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
           </h1>
           <a her="#" class="nav_toggleBtn">
@@ -42,7 +41,7 @@
           </nav>
         </div>
       </header>
-      <!-- 모바일 네비게이션 -->
+      <!-- Mobile Nav -->
       <nav class="mb_nav">
         <ul class="nav_list">
           <li><a href="/review.html?id=13">Review</a></li>
@@ -52,7 +51,7 @@
           <li><a href="#">Store</a></li>
         </ul>
       </nav>
-      <!-- 메인 슬라이더 영역-->
+      <!-- Main Slider -->
       <div id="carouselContainer">
         <div id="carouselSlides">
           <div class="slide">
@@ -96,9 +95,12 @@
 
 
       <section class="section">
-        <!-- 공지사항 영역 -->
+        <!-- Notice -->
         <article class="notice">
           <h2>Notice</h2>
+          <div class="weather">
+            <!-- 날씨기능 여기에 추가 부탁드립니다.-->
+          </div>
           <ul class="noticeContainer">
             <li class="noticeItem">
               <span class="noticeItem_title">GoodFellas</span>
@@ -127,7 +129,7 @@
             </li>
           </ul>
         </article>
-        <!-- 더 많은 정보 영역 -->
+        <!-- Information -->
         <article class="information">
           <h2>Box office</h2>
           <div class="rolling_movie_controls">
@@ -141,7 +143,7 @@
             </ul>
           </div>
         </article>
-        <!-- 검색창 영역 -->
+        <!-- Search -->
         <form class="search" id="searchForm">
           <input type="text" id="movieSearch" name="search" placeholder="Search the movie title" autofocus />
           <button type="submit" id="searchButton">
