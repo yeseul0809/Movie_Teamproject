@@ -9,8 +9,9 @@
   width: 100%;
   border-radius: 30px;
   border: 2px solid #dfe1e5;
-  padding: 20px 25px;
+  padding: 16px 23px;
   font-family: var(--font-default);
+  font-size: 18px;
 }
 
 #searchButton {
@@ -20,7 +21,7 @@
   outline: none;
   position: absolute;
   right: 16px;
-  top: 16px;
+  top: 20px;
   margin: 0;
   background-color: transparent;
   font-family: var(--icon);
@@ -203,7 +204,7 @@
   content: "";
   position: absolute;
   right: -15px;
-  top: 3px;
+  top: 5px;
   height: 15px;
   border-left: 1px solid #707070;
 }
