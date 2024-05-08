@@ -1,17 +1,16 @@
-/* 검색창  영역*/
+/* Search */
 .search {
-  width: 560px;
+  width: 720px;
   margin: 50px auto 0 auto;
   position: relative;
 }
 
 #movieSearch {
   width: 100%;
-  border-radius: 20px;
-  border: 1.5px solid #dfe1e5;
-  margin: 10px 0;
-  padding: 10px 12px;
-  font-family: var(--icon);
+  border-radius: 30px;
+  border: 2px solid #dfe1e5;
+  padding: 20px 25px;
+  font-family: var(--font-default);
 }
 
 #searchButton {
@@ -20,10 +19,11 @@
   border: 0;
   outline: none;
   position: absolute;
-  right: 10px;
+  right: 16px;
   top: 16px;
   margin: 0;
   background-color: transparent;
+  font-family: var(--icon);
 }
 
 .searching {
@@ -36,7 +36,7 @@
 
 /* 메인 슬라이더 영역 ( 지우시고 작업하시면 됩니다 )*/
 #carouselContainer {
-  width: 100vw;
+  width: 100%;
   height: 90vh;
   overflow: hidden;
   position: relative;
@@ -60,6 +60,39 @@
   background-repeat: no-repeat;
   background-size: cover;
   float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.slide_text_box {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 400px;
+}
+
+.slide_text_box.color_white {
+  color: #fff !important;
+}
+
+.slide_text_box.color_black {
+  color: #000 !important;
+}
+
+.slide_text_box h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.slide_text_box p {
+  font-size: var(--font-sub-title-size);
+  white-space: wrap;
+  margin-bottom: 15px;
+}
+
+.slide_text_box span {
+  font-size: var(--font-sub-title-size);
+  font-size: 18px;
 }
 
 .fa-chevron-left,
@@ -73,14 +106,14 @@
 .fa-chevron-left {
   position: absolute;
   top: 300px;
-  left: 2vw;
+  left: 3.5vw;
   cursor: pointer;
 }
 
 .fa-chevron-right {
   position: absolute;
   top: 300px;
-  left: 96vw;
+  left: 93.5vw;
   cursor: pointer;
 }
 
@@ -103,6 +136,7 @@
   width: 70%;
   height: 70%;
 }
+
 .fa-xmark {
   position: absolute;
   right: 2%;
@@ -115,23 +149,79 @@
   visibility: hidden;
 }
 
-/* 영화 상세페이지 영역*/
-.subpage {
-}
-
-/* 시사회/무대인사 영역*/
-.preview {
-  height: 200px;
-}
-
-/* 더 많은 정보 영역*/
-.information h2 {
+/* notice */
+.notice {
   margin-bottom: 30px;
+}
+
+.notice h2 {
+  margin-bottom: 15px;
+}
+
+.noticeContainer {
+  position: relative;
+}
+
+.noticeContainer::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid #AAA;
+}
+
+.noticeItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  opacity: 0;
+  transition: opacity 3s ease-in-out, transform 1s ease;
+  transform: translateY(5px);
+  visibility: hidden;
+  padding: 15px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--font-default);
+}
+
+.noticeVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+.noticeItem_title {
+  font-weight: 700;
+  margin-right: 23px;
+  position: relative;
+}
+
+.noticeItem_title::after {
+  content: "";
+  position: absolute;
+  right: -15px;
+  top: 3px;
+  height: 15px;
+  border-left: 1px solid #707070;
+}
+
+/* Box office */
+.information {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.information h2 {
+  margin-bottom: 50px;
 }
 
 .rolling_movie_slides_wrapper {
   width: 100%;
-  height: 135px;
+  height: 375px;
   overflow: hidden;
   margin: 0 auto 6px auto;
   display: flex;
@@ -159,8 +249,8 @@
 
 .rolling_movie_slides li {
   position: relative;
-  width: 238px;
-  height: 135px;
+  width: 250px;
+  height: 375px;
   border-radius: 10px;
 }
 
@@ -189,7 +279,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transition: transform .4s;
+  transition: transform 0.4s;
   transform: translate(-50%, -50%);
   cursor: pointer;
   text-align: center;
@@ -213,38 +303,18 @@
   opacity: 0.999;
 }
 
-@media only screen and (max-width: 1068px) {
-
-  .rolling_movie_slides_wrapper,
-  .rolling_movie_slides li {
-    height: 97px
-  }
-
-  .rolling_movie_slides li {
-    width: 171px;
-  }
-}
-
-.rolling_movie_slides li a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
 .rolling_movie_controls {
-  margin-top: 15px;
-  position: relative;
+  width: fit-content;
+  height: 50px;
+  position: absolute;
+  top: 108px;
+  right: 0;
 }
 
 .rm_stop_btn,
 .rm_play_btn {
-  font-size: 22px;
+  font-size: 26px;
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .rm_stop_btn.active,
@@ -252,8 +322,21 @@
   display: block;
 }
 
-/** 애니메이션 **/
-/* 원본용 */
+/* 광고 배너 영역*/
+.banner {
+  margin-bottom: 90px;
+}
+
+#adBanner {
+  width: 980px;
+  height: 190px;
+  background-image: url("../img/main/AbigailBanner_large.jpg");
+  background-size: cover;
+}
+
+
+/** animation **/
+/* original */
 @keyframes slide01 {
   0% {
     transform: translateX(0);
@@ -272,7 +355,7 @@
   }
 }
 
-/* 복제용 */
+/* clone */
 @keyframes slide02 {
   0% {
     transform: translateX(0);
@@ -283,13 +366,96 @@
   }
 }
 
+/* 반응형 */
+@media only screen and (max-width: 1068px) {
 
-/* 공지사항 영역*/
-.notice {
-  height: 200px;
+  .rolling_movie_slides_wrapper,
+  .rolling_movie_slides li {
+    height: 300px;
+  }
+
+  .rolling_movie_slides li {
+    width: 200px;
+  }
+
+  .rm_stop_btn,
+  .rm_play_btn {
+    font-size: 21px;
+  }
+
+  .information {
+    padding-bottom: 30px;
+  }
+
+  .information h2 {
+    margin-bottom: 30px;
+  }
+
+  .fa-chevron-left,
+  .fa-chevron-right {
+    font-size: 40px;
+  }
+
+  .fa-chevron-right {
+    left: 92vw;
+  }
+
+  #adBanner {
+    width: 719px;
+    height: 132px;
+    background-image: url("../img/main/AbigailBanner_medium.jpg");
+  }
+
 }
 
-/* 광고 배너 영역*/
-.banner {
-  height: 200px;
+@media only screen and (max-width: 768px) {
+
+  .rolling_movie_slides_wrapper,
+  .rolling_movie_slides li {
+    height: 225px;
+  }
+
+  .rolling_movie_slides li {
+    width: 150px;
+  }
+
+  .fa-chevron-left,
+  .fa-chevron-right {
+    font-size: 30px;
+  }
+
+  .fa-chevron-right {
+    left: 90vw;
+  }
+
+  .search {
+    width: 420px;
+  }
+
+  #movieSearch {
+    padding: 15px 20px;
+  }
+
+  #adBanner {
+    width: 419px;
+    height: 77px;
+    background-image: url("../img/main/AbigailBanner_medium.jpg");
+  }
 }
+
+@media only screen and (max-width: 420px) {
+  #adBanner {
+    width: 320px;
+    height: 59px;
+    background-image: url("../img/main/AbigailBanner_medium.jpg");
+  }
+
+  .search {
+    width: 320px;
+  }
+}
+
+/* .banner {
+  height: 200px;
+  margin-bottom: 5%;
+} */

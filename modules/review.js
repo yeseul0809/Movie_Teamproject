@@ -11,19 +11,93 @@ const options = {
   },
 };
 
-fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
-  .then((response) => response.json())
-  .then((data) => {
-    document.querySelector(
-      "#movie-poster"
-    ).style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${data.poster_path})`;
-    document.getElementById("movie-title").textContent = data.title;
-    document.getElementById("movie-description").textContent = data.overview;
-    document.getElementById(
-      "movie-rating"
-    ).textContent = `Rating : ${data.vote_average}`;
-  })
-  .catch((err) => console.error(err));
+async function fetchMovieData() {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      options
+    );
+    const data = await response.json();
+
+    makeDesc(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function fetchMoviesData() {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1`,
+      options
+    );
+    const data = await response.json();
+    let filterMovies = getFilteredMoviesData(data);
+    makeRelatedMovies(filterMovies);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// 사용 예시
+fetchMovieData();
+fetchMoviesData();
+
+function makeDesc(data) {
+  document.querySelector(
+    "#movie-poster"
+  ).style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${data.poster_path})`;
+  document.getElementById("movie-title").textContent = data.title;
+  document.getElementById("movie-description").textContent = data.overview;
+  document.getElementById(
+    "movie-rating"
+  ).textContent = `Rating : ${data.vote_average}`;
+}
+
+function getFilteredMoviesData(data) {
+  let relatedMovies = [];
+
+  const currentMovie = data.results.filter(
+    (item) => item.id === Number(movieId)
+  )[0];
+
+  let genreIdsArr = data.results.map((movie) => {
+    return movie.genre_ids;
+  });
+
+  genreIdsArr.forEach((movie, index) => {
+    let count = 0;
+    currentMovie.genre_ids.forEach((item) => {
+      movie.includes(item) ? count++ : null;
+    });
+    count >= 2 && relatedMovies.push(data.results[index]);
+  });
+
+  let filterMovies = relatedMovies.filter(
+    (item) => item.id !== currentMovie.id
+  );
+
+  return filterMovies;
+}
+
+const noRelatedWarning = document.querySelector(".noRelatedWarning");
+
+function makeRelatedMovies(filterMovies) {
+  if (filterMovies.length === 0) {
+    noRelatedWarning.classList.remove("hidden");
+  }
+  const recommendList = document.querySelector("#recommend-list");
+  filterMovies.forEach((movie) => {
+    const list = document.createElement("li");
+    list.classList.add("relatedList");
+    list.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title}">`;
+    recommendList.appendChild(list);
+
+    list.addEventListener("click", () => {
+      window.location.href = `review.html?id=${movie.id}`;
+    });
+  });
+}
 
 // 리뷰 관련 기능
 const reviewForm = document.getElementById("review-form");
@@ -84,19 +158,25 @@ function displayReviews(movieId) {
   reviewList.innerHTML = "";
   reviews[movieId].forEach((review, index) => {
     const reviewItem = document.createElement("li");
-    reviewItem.textContent = `${review.text} (${review.timestamp})`;
+    reviewItem.classList.add("review_wrap");
+    reviewItem.innerHTML = `<div>${review.text} (${review.timestamp})</div>`;
+    reviewList.appendChild(reviewItem);
+
+    const buttonWrap = document.createElement("div");
+    buttonWrap.classList.add("review_btn_wrap");
+    reviewItem.appendChild(buttonWrap);
 
     //수정 버튼 추가
     const editButton = document.createElement("button");
-    editButton.textContent = "수정";
+    editButton.textContent = "modify";
     editButton.addEventListener("click", () => editReview(movieId, index)); // 클릭시 리뷰 수정 함수 호출
-    reviewItem.appendChild(editButton);
+    buttonWrap.appendChild(editButton);
 
     //삭제 버튼 추가
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "삭제";
+    deleteButton.textContent = "delete";
     deleteButton.addEventListener("click", () => deleteReview(movieId, index)); // 클릭시 리뷰 삭제 함수 호출
-    reviewItem.appendChild(deleteButton);
+    buttonWrap.appendChild(deleteButton);
 
     reviewList.appendChild(reviewItem);
   });
@@ -168,3 +248,37 @@ function deleteReview(movieId, index) {
     },
   });
 }
+
+const prevRelateBtn = document.querySelector(".relatePrevBtn");
+const nextRelateBtn = document.querySelector(".relateNextBtn");
+const relateWrap = document.querySelector("#recommend-list");
+
+let current = 0;
+
+function moveRelateSlide(direction) {
+  const relateSlide = document.querySelector(".relatedList");
+  const slideWidth = relateSlide?.offsetWidth;
+  let newLeft = current;
+
+  if (direction === 1) {
+    newLeft -= slideWidth + 5;
+  } else if (direction === -1) {
+    newLeft += slideWidth + 5;
+  }
+
+  const maxLeft = 0;
+  const minLeft = -(relateWrap.children.length - 1) * slideWidth;
+  if (newLeft > maxLeft) {
+    newLeft = maxLeft;
+  } else if (newLeft < minLeft) {
+    newLeft = minLeft;
+  }
+
+  relateWrap.style.transition = "300ms";
+  relateWrap.style.left = `${newLeft}px`;
+
+  current = newLeft;
+}
+
+prevRelateBtn.addEventListener("click", () => moveRelateSlide(-1));
+nextRelateBtn.addEventListener("click", () => moveRelateSlide(1));

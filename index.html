@@ -7,6 +7,7 @@
   <meta name="keywords" content="프론트엔드, 개발자, 영화, 영화리뷰, 팀프로젝트" />
   <meta name="author" content="한예슬,이수진,이승빈,강희진,김연희,이보아" />
   <title>팀프로젝트 - 영화 페이지</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon.png">
   <link rel="stylesheet" href="./style/reset.css" />
   <link rel="stylesheet" href="./style/common.css" />
   <link rel="stylesheet" href="./style/main.css" />
@@ -25,19 +26,18 @@
             <!-- 날씨 기능 구현 영역-->
             <img src="./img/main/header_logo.png" alt="CINEMA 로고" />
           </h1>
-          <a her="#" class="nav_togleBtn">
+          <a her="#" class="nav_toggleBtn">
             <span></span>
             <span></span>
             <span></span>
           </a>
           <nav class="pc_nav">
             <ul class="nav_list">
-              <li><a href="#">예매</a>
-              </li>
-              <li><a href="#">영화</a></li>
-              <li><a href="#">영화관</a></li>
-              <li><a href="#">이벤트</a></li>
-              <li><a href="#">스토어</a></li>
+              <li><a href="/review.html?id=13">Review</a></li>
+              <li><a href="#">Reservation</a></li>
+              <li><a href="#">Movies</a></li>
+              <li><a href="#">Event</a></li>
+              <li><a href="#">Store</a></li>
             </ul>
           </nav>
         </div>
@@ -45,22 +45,45 @@
       <!-- 모바일 네비게이션 -->
       <nav class="mb_nav">
         <ul class="nav_list">
-          <li><a href="#">예매</a>
-          </li>
-          <li><a href="#">영화</a></li>
-          <li><a href="#">영화관</a></li>
-          <li><a href="#">이벤트</a></li>
-          <li><a href="#">스토어</a></li>
+          <li><a href="/review.html?id=13">Review</a></li>
+          <li><a href="#">Reservation</a></li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">Event</a></li>
+          <li><a href="#">Store</a></li>
         </ul>
       </nav>
       <!-- 메인 슬라이더 영역-->
       <div id="carouselContainer">
         <div id="carouselSlides">
-          <div class="slide"></div>
-          <div class="slide"></div>
-          <div class="slide"></div>
-          <div class="slide"></div>
-        </div>       
+          <div class="slide">
+            <div class="slide_text_box color_white">
+              <h2>The Godfather</h2>
+              <p>Marlon Brando and Al Pacino appeared and portrayed betrayal and love in the mafia world.</p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide_text_box color_black">
+              <h2>Your Name.</h2>
+              <p>High schoolers Mitsuha and Taki are complete strangers living separate lives. </p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide_text_box color_white">
+              <h2>Spirited Away</h2>
+              <p>A young girl, Chihiro, becomes trapped in a strange new world of spirits. </p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide_text_box color_white">
+              <h2>Parasite</h2>
+              <p>Marlon Brando and Al Pacino appeared and portrayed betrayal and love in the mafia world.</p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
 
         <i class="fa-solid fa-chevron-left"></i>
         <i class="fa-solid fa-chevron-right"></i>
@@ -70,98 +93,75 @@
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
-      <!-- 검색창 영역 -->
-      <form class="search" id="searchForm">
-        <input type="text" id="movieSearch" name="search" placeholder="영화 제목을 검색해보세요" autofocus />
-        <button type="submit" id="searchButton">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
+
+
       <section class="section">
-  
-        <!-- 시사회/무대인사 영역 -->
-        <article class="preview">
-          <h2>시사회/무대인사</h2>
+        <!-- 공지사항 영역 -->
+        <article class="notice">
+          <h2>Notice</h2>
+          <ul class="noticeContainer">
+            <li class="noticeItem">
+              <span class="noticeItem_title">GoodFellas</span>
+              <span class="noticeItem_text">The true story of Henry Hill, a half-Irish, half-Sicilian Brooklyn kid who
+                is adopted by
+                neighbourhood</span>
+            </li>
+            <li class="noticeItem">
+              <span class="noticeItem_title">inema Paradiso</span>
+              <span>A filmmaker recalls his childhood, when he fell in love with the movies at his village's theater
+                and formed a deep friendship</span>
+            </li>
+            <li class="noticeItem">
+              <span class="noticeItem_title">The Godfather Part II</span>
+              <span class="noticeItem_text">In the continuing saga of the Corleone crime family</span>
+            </li>
+            <li class="noticeItem">
+              <span class="noticeItem_title">Radical</span>
+              <span class="noticeItem_text">In a Mexican border town plagued by neglect, corruption</span>
+            </li>
+            <li class="noticeItem">
+              <span class="noticeItem_title">Parasite</span>
+              <span class="noticeItem_text">All unemployed, Ki-taek's family takes peculiar interest in the wealthy and
+                glamorous Parks for
+                their livelihood </span>
+            </li>
+          </ul>
         </article>
         <!-- 더 많은 정보 영역 -->
         <article class="information">
-          <h2>이벤트</h2>
-          <div class="rolling_movie_slides_wrapper">
-            <ul class="rolling_movie_slides">
-              <li>
-                <a href="#" target="_blank" aria-label="리뷰 보기">
-                  <img src="./img/main/event_img/1.jpg" alt="1번 이미지">
-                  <h4 class="rolling_movie_slides-content">
-                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
-                  </h4>
-                </a>
-              </li>
-              <!-- <li>
-                <a href="#" target="_blank" aria-label="리뷰 보기">
-                  <img src="./img/main/event_img/6.jpg" alt="2번 이미지">
-                  <h4 class="rolling_movie_slides-content">
-                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
-                  </h4>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" aria-label="리뷰 보기">
-                  <img src="./img/main/event_img/10.jpg" alt="3번 이미지">
-                  <h4 class="rolling_movie_slides-content">
-                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
-                  </h4>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" aria-label="리뷰 보기">
-                  <img src="./img/main/event_img/8.jpg" alt="4번 이미지">
-                  <h4 class="rolling_movie_slides-content">
-                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
-                  </h4>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" aria-label="리뷰 보기">
-                  <img src="./img/main/event_img/12.jpg" alt="5번 이미지">
-                  <h4 class="rolling_movie_slides-content">
-                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
-                  </h4>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" aria-label="리뷰 보기">
-                  <img src="./img/main/event_img/13.jpg" alt="6번 이미지">
-                  <h4 class="rolling_movie_slides-content">
-                    <span class="rolling_movie_slides_cta">리뷰 보기</span>
-                  </h4>
-                </a>
-              </li> -->
-            </ul>
-          </div>
-
+          <h2>Box office</h2>
           <div class="rolling_movie_controls">
             <a href="#" class="rm_stop_btn active" class="rm_stop_btn"><i class="fa fa-stop-circle"
                 aria-hidden="true"></i></a>
             <a href="#" class="rm_play_btn"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
           </div>
+          <div class="rolling_movie_slides_wrapper">
+            <ul class="rolling_movie_slides">
+              <!--슬라이더 출력됨 -->
+            </ul>
+          </div>
         </article>
+        <!-- 검색창 영역 -->
+        <form class="search" id="searchForm">
+          <input type="text" id="movieSearch" name="search" placeholder="Search the movie title" autofocus />
+          <button type="submit" id="searchButton">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
 
 
         <!-- 영화 상세페이지 영역 -->
-          <article class="subpage">
-            <div id="cardsGroup"></div>
-          </article>
-        <!-- 공지사항 영역 -->
-        <article class="notice">
-          <h2>공지사항</h2>
+        <article class="subpage">
+          <h2>Weekly movie</h2>
+          <div id="cardsGroup"></div>
         </article>
-        <!-- 광고 배너 영역-->
+        <!-- banner -->
         <article class="banner">
-          <h2>광고 배너</h2>
+          <div id="adBanner"></div>
         </article>
       </section>
     </div>
-    <!-- 푸터 영역 -->
+    <!-- footer -->
     <footer class="footer">
       <div class="footer_content">
         <div class="footer_infbox">
@@ -196,16 +196,14 @@
   <script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
   <script type="module" src="./modules/display.js"></script>
   <script type="module" src="./modules/main.js"></script>
+  <!-- <script type="module" src="./modules/review.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
   <script type="module" src="./modules/common.js"></script>
   <script type="module" src="./modules/rolling_slider.js"></script>
   <script type="module" src="./modules/mainSlide.js" defer></script>
   <script type="module" src="./modules/youtube.js" defer></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script
-    src="https://kit.fontawesome.com/4bbbcee7af.js"
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://kit.fontawesome.com/4bbbcee7af.js" crossorigin="anonymous"></script>
   <script>
     window.onload = () => {
       window.scrollTo(0, 0);
