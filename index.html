@@ -55,10 +55,34 @@
       <!-- 메인 슬라이더 영역-->
       <div id="carouselContainer">
         <div id="carouselSlides">
-          <div class="slide"></div>
-          <div class="slide"></div>
-          <div class="slide"></div>
-          <div class="slide"></div>
+          <div class="slide">
+            <div class="slide_text_box color_white">
+              <h2>The Godfather</h2>
+              <p>Marlon Brando and Al Pacino appeared and portrayed betrayal and love in the mafia world.</p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide_text_box color_black">
+              <h2>Your Name.</h2>
+              <p>High schoolers Mitsuha and Taki are complete strangers living separate lives. </p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide_text_box color_white">
+              <h2>Spirited Away</h2>
+              <p>A young girl, Chihiro, becomes trapped in a strange new world of spirits. </p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide_text_box color_white">
+              <h2>Parasite</h2>
+              <p>Marlon Brando and Al Pacino appeared and portrayed betrayal and love in the mafia world.</p>
+              <span>play preview <i class="fa fa-play-circle-o" aria-hidden="true"></i></span>
+            </div>
+          </div>
         </div>
 
         <i class="fa-solid fa-chevron-left"></i>
@@ -69,25 +93,21 @@
           <i class="fa-solid fa-xmark"></i>
         </div>
       </div>
-      <!-- 검색창 영역 -->
-      <form class="search" id="searchForm">
-        <input type="text" id="movieSearch" name="search" placeholder="영화 제목을 검색해보세요" autofocus />
-        <button type="submit" id="searchButton">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
+      
+
       <section class="section">
-
-        <!-- 시사회/무대인사 영역 -->
-        <article class="preview">
-          <h2>시사회/무대인사</h2>
-
-         
-   
+        <!-- 공지사항 영역 -->
+        <article class="notice">
+          <h2>공지사항</h2>
+          <ul class="noticeContainer">
+            <li class="noticeItem">Item 1</li>
+            <li class="noticeItem">Item 2</li>
+            <li class="noticeItem">Item 3</li>
+          </ul>
         </article>
         <!-- 더 많은 정보 영역 -->
         <article class="information">
-          <h2>박스오피스 리뷰 보기</h2>
+          <h2>Box office</h2>
           <div class="rolling_movie_controls">
             <a href="#" class="rm_stop_btn active" class="rm_stop_btn"><i class="fa fa-stop-circle"
                 aria-hidden="true"></i></a>
@@ -99,24 +119,26 @@
             </ul>
           </div>
         </article>
+        <!-- 검색창 영역 -->
+      <form class="search" id="searchForm">
+        <input type="text" id="movieSearch" name="search" placeholder="영화 제목을 검색해보세요" autofocus />
+        <button type="submit" id="searchButton">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
 
 
         <!-- 영화 상세페이지 영역 -->
         <article class="subpage">
+          <h2>이번주 인기 영화</h2>
           <div id="cardsGroup"></div>
-        </article>
-        <!-- 공지사항 영역 -->
-        <article class="notice">
-          <h2>공지사항</h2>
-          <ul class="noticeContainer">
-            <li class="noticeItem">Item 1</li>
-            <li class="noticeItem">Item 2</li>
-            <li class="noticeItem">Item 3</li>
-          </ul>
         </article>
         <!-- 광고 배너 영역-->
         <article class="banner">
-          <h2>광고 배너</h2>
+          <!-- <h2>광고 배너</h2> -->
+          <div id="adBanner">
+            <img class="ad_Banner" src="./img/main/AbigailBanner.jpg" alt="광고 배너">
+          </div>
         </article>
       </section>
     </div>

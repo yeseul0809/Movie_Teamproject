@@ -7,10 +7,9 @@
 
 #movieSearch {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 30px;
   border: 1.5px solid #dfe1e5;
-  margin: 10px 0;
-  padding: 10px 12px;
+  padding: 20px 25px;
   font-family: var(--icon);
 }
 
@@ -60,6 +59,39 @@
   background-repeat: no-repeat;
   background-size: cover;
   float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.slide_text_box {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 400px;
+}
+
+.slide_text_box.color_white {
+  color: #fff !important;
+}
+
+.slide_text_box.color_black {
+  color: #000 !important;
+}
+
+.slide_text_box h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.slide_text_box p {
+  font-size: var(--font-sub-title-size);
+  white-space: wrap;
+  margin-bottom: 15px;
+}
+
+.slide_text_box span {
+  font-size: var(--font-sub-title-size);
+  font-size: 18px;
 }
 
 .fa-chevron-left,
@@ -73,14 +105,14 @@
 .fa-chevron-left {
   position: absolute;
   top: 300px;
-  left: 2vw;
+  left: 3.5vw;
   cursor: pointer;
 }
 
 .fa-chevron-right {
   position: absolute;
   top: 300px;
-  left: 96vw;
+  left: 93.5vw;
   cursor: pointer;
 }
 
@@ -223,7 +255,7 @@
   width: fit-content;
   height: 50px;
   position: absolute;
-  top: 56px;
+  top: 58px;
   right: 0;
 }
 
@@ -292,6 +324,15 @@
   .information h2 {
     margin-bottom: 30px;
   }
+
+  .fa-chevron-left,
+  .fa-chevron-right {
+    font-size: 40px;
+  }
+
+  .fa-chevron-right {
+    left: 92vw;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -303,11 +344,19 @@
   .rolling_movie_slides li {
     width: 150px;
   }
-}
 
-/* 공지사항 영역*/
-.notice {
-  height: 200px;
+  .fa-chevron-left,
+  .fa-chevron-right {
+    font-size: 30px;
+  }
+
+  .fa-chevron-right {
+    left: 90vw;
+  }
+
+  .search {
+    width: 320px;
+  }
 }
 
 .noticeContainer {
@@ -334,4 +383,5 @@
 /* 광고 배너 영역*/
 .banner {
   height: 200px;
+  margin-bottom: 5%;
 }
