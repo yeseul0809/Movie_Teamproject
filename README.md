@@ -32,10 +32,8 @@ TMDB를 활용하여 바닐라 JS로 결과물을 온전히 만들며, 팀원들
   <br>
  ---
   ### * 초기 계획한 파일 구조
-  
-![result_Mind![result_Mind Map Curved Right (3)](https://github.com/yeseul0809/Movie_Teamproject/assets/71476841/d2192302-a52d-4669-94a7-5f521cbcc752)
- Map Curved Right (4)](https://github.com/yeseul0809/Movie_Teamproject/assets/71476841/5ee0cb80-c04b-4f38-b12a-1efc7d3ceb64)
-
+![result_Mind Map Curved Right (5)](https://github.com/yeseul0809/Movie_Teamproject/assets/71476841/71673b9c-0d75-40f9-bdc5-7497e7673fc0)
+![result_Mind Map Curved Right (4)](https://github.com/yeseul0809/Movie_Teamproject/assets/71476841/db6cdfdd-f827-45c1-a213-18920e44594d)
 
  ---
 ### * 와이어프레임
